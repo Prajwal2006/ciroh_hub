@@ -4,7 +4,7 @@ import Link from '@docusaurus/Link';
 import DotGrid from './components/DotGrid';
 import './styles.css';
 import { apiFetch, buildApiUrl } from '@site/src/utils/apiClient';
-import { consumeJwtFromUrl, getStoredJwt } from '@site/src/utils/authToken';
+import { consumeJwtFromUrl, getStoredJwt, setLoginReturnTo } from '@site/src/utils/authToken';
 import { useApiBaseUrl } from '@site/src/utils/useApiBaseUrl';
 
 const toBullets = (text) => {
@@ -57,6 +57,7 @@ const AddBlogInner = () => {
     consumeJwtFromUrl();
     const token = getStoredJwt();
     if (!token) {
+      setLoginReturnTo(`${window.location.pathname}${window.location.search}${window.location.hash}`);
       window.location.href = buildApiUrl(apiBaseUrl, 'github-login');
     }
   }, [apiBaseUrl]);
@@ -171,6 +172,7 @@ ${additionalInformation}
       });
 
       if (res.status === 401) {
+        setLoginReturnTo(`${window.location.pathname}${window.location.search}${window.location.hash}`);
         window.location.href = buildApiUrl(apiBaseUrl, 'github-login');
         return;
       }
@@ -201,7 +203,7 @@ ${additionalInformation}
 
   if (submitted) {
     const computedIssueUrl = issueUrl || (issueRepo && issueNumber ? `https://github.com/${issueRepo}/issues/${issueNumber}` : '');
-    const githubHref = computedIssueUrl || 'https://github.com/CIROH-UA/ciroh-ua_website/issues';
+    const githubHref = computedIssueUrl || 'https://github.com/CIROH-UA/ciroh_hub/issues';
 
     return (
       <div className="admin-container">

@@ -208,7 +208,7 @@ ${primaryContact}
       issueUrl ||
       (issueRepo && issueNumber ? `https://github.com/${issueRepo}/issues/${issueNumber}` : '');
 
-    const githubHref = computedIssueUrl || 'https://github.com/CIROH-UA/ciroh-ua_website/issues';
+    const githubHref = computedIssueUrl || 'https://github.com/CIROH-UA/ciroh_hub/issues';
 
     return (
       <div className="admin-container">

@@ -5,7 +5,8 @@ import rehypeKatex from 'rehype-katex';
 
 dotenv.config();
 
-const baseUrl = "/local/";
+// In local dev set SITE_BASE_URL=/ in .env; leave unset (defaults to /local/) for production.
+const baseUrl = process.env.SITE_BASE_URL || "/local/";
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -360,6 +361,10 @@ const config = {
               label: "Release Notes",
               position: "right",
               to: "/release-notes",
+            },
+            {
+              type: 'custom-githubAuth',
+              position: 'right',
             },
             
           ],
