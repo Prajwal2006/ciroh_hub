@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkciroh_docuhub=self.webpackChunkciroh_docuhub||[]).push([["81668"],{86569(e,r,u){u.r(r),u.d(r,{default:()=>n});var c=u(74848);u(96540);var s=u(34164),a=u(34308),h=u(88287),o=u(22831),d=u(50300);function n(e){return(0,c.jsx)(a.e3,{className:(0,s.A)(h.G.wrapper.docsPages),children:(0,c.jsx)(d.A,{children:(0,o.v)(e.route.routes)})})}}}]);
