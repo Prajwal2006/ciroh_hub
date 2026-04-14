@@ -27,7 +27,11 @@ const OnPremises = () => {
     }
   ];
 
-  const description = "CIROH operates an on-premises infrastructure that includes high-performance computing (HPC) resources and specialized software via the Pantarhei and Wukong systems.";
+  const description = (
+    <>
+      CIROH operates an on-premises infrastructure that includes high-performance computing (HPC) resources and specialized software via the Pantarhei and Wukong systems. See the <a href="https://hub.ciroh.org/docs/services/on-prem/Pantarhei/sysinfo" target="_blank" rel="noopener noreferrer">Pantarhei documentation</a> for system details.
+    </>
+  );
 
   return (
     <InfrastructureAccessSection
@@ -35,10 +39,7 @@ const OnPremises = () => {
       title="Accessing On-Premises Infrastructure"
       description={description}
       steps={steps}
-      helpBox={{
-        title: "Prerequisites",
-        content: "Before requesting individual access, ensure the On-Premises Infrastructure Request Form has been completed by your PI."
-      }}
+      
     />
   );
 };

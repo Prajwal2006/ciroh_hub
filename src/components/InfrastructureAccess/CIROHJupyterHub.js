@@ -30,7 +30,11 @@ const CIROHJupyterHub = () => {
       <a href="https://2i2c.org/" target="_blank" rel="noopener noreferrer" style={{ fontWeight: 600 }}>
         2i2c
       </a>
-      , CIROH provides JupyterHub with both CPU and GPU capabilities.
+      , CIROH provides JupyterHub with both CPU and GPU capabilities. See the{' '}
+      <a href="https://hub.ciroh.org/docs/services/cloudservices/2i2c/#server-options" target="_blank" rel="noopener noreferrer" style={{ fontWeight: 600 }}>
+        2i2c server options documentation
+      </a>
+      {' '}for configuration details.
     </>
   );
 
@@ -101,7 +105,15 @@ const CIROHJupyterHub = () => {
               {' '}file by exporting your conda environment.
             </li>
             <li style={{lineHeight: 1.6}}>
-              Open a ticket in the CIROH image repository and describe the software or image changes you need.
+              Open a ticket in the CIROH image repository and describe the software or image changes you need. Create issue here:{' '}
+              <a
+                href="https://github.com/CIROH-UA/awi-ciroh-image/issues"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ color: isDark ? '#06b6d4' : '#0891b2', fontWeight: 600 }}
+              >
+                https://github.com/CIROH-UA/awi-ciroh-image/issues/new
+              </a>
             </li>
           </ol>
           

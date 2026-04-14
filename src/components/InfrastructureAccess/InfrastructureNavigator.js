@@ -22,7 +22,8 @@ const InfrastructureNavigator = () => {
     { id: 'on-premises', label: 'On-Premises (HPC)', shortLabel: 'On-Premises (HPC)', icon: '🖥️', type: 'emoji' },
     { id: 'nsf-access', label: 'NSF ACCESS', shortLabel: 'NSF Access', icon: '🚀', type: 'emoji' },
     { id: 'bigquery', label: 'NWM BigQuery API', shortLabel: 'NWM BigQuery API', icon: 'bigquery', type: 'svg' },
-    { id: 'workshops', label: 'Workshops', shortLabel: 'Workshops', icon: '🎓', type: 'emoji' }
+    { id: 'workshops', label: 'Workshops', shortLabel: 'Workshops', icon: '🎓', type: 'emoji' },
+    { id: 'help', label: 'Help', shortLabel: 'Help', icon: '💬', type: 'emoji' }
   ];
 
   useEffect(() => {

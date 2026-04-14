@@ -12,7 +12,8 @@ const TableOfContents = () => {
     { id: 'on-premises', label: 'On-Premises Infra (HPC)' },
     { id: 'nsf-access', label: 'NSF ACCESS Allocations' },
     { id: 'bigquery', label: 'NWM BigQuery API' },
-    { id: 'workshops', label: 'Workshop Support' }
+    { id: 'workshops', label: 'Workshop Support' },
+    { id: 'help', label: 'Help & Support' }
   ];
 
   useEffect(() => {

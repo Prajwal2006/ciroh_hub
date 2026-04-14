@@ -50,7 +50,10 @@ const NWMBigQuery = () => {
         maxWidth: '70rem',
         color: 'var(--ifm-color-emphasis-700)'
       }}>
-        To access CIROH's NWM BigQuery API, please submit the form below.
+        To access CIROH's NWM BigQuery API, please submit the form below. For additional details, see the{' '}
+        <a href="https://hub.ciroh.org/docs/products/data-management/bigquery-api/" target="_blank" rel="noopener noreferrer">
+          BigQuery API documentation
+        </a>.
       </p>
 
       <div style={{
