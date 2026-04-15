@@ -9,11 +9,11 @@ const CIROHJupyterHub = () => {
   const steps = [
     {
       title: "Submit Unified Access Request",
-      description: "Use the same Cloud Infrastructure Request Form used for public cloud access to request CIROH-2i2c JupyterHub resources, including CPU or GPU access for your project or workshop.",
+      description: "The PI for your project must submit the Infrastructure Request Form below to request team-wide access to a particular resource on 2i2c JupyterHub.",
       buttons: [
         {
           text: "Cloud Infrastructure Request Form",
-          link: "https://github.com/CIROH-UA/NGIAB-CloudInfra/issues/new?template=case_studies_call_template.yml"
+          link: "https://github.com/CIROH-UA/NGIAB-CloudInfra/issues/new?template=jupyterhub_access_request.yml"
         }
       ],
       details: (
@@ -105,15 +105,8 @@ const CIROHJupyterHub = () => {
               {' '}file by exporting your conda environment.
             </li>
             <li style={{lineHeight: 1.6}}>
-              Open a ticket in the CIROH image repository and describe the software or image changes you need. Create issue here:{' '}
-              <a
-                href="https://github.com/CIROH-UA/awi-ciroh-image/issues"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{ color: isDark ? '#06b6d4' : '#0891b2', fontWeight: 600 }}
-              >
-                https://github.com/CIROH-UA/awi-ciroh-image/issues/new
-              </a>
+              Open a ticket in the CIROH image repository and describe the software or image changes you need. Create issue here:
+              
             </li>
           </ol>
           
@@ -137,7 +130,7 @@ const CIROHJupyterHub = () => {
               textDecoration: 'none'
             }}
           >
-            Open a Custom Image Ticket
+            Custom Image Ticket
             <svg width={18} height={18} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
               <polyline points="15 3 21 3 21 9" />

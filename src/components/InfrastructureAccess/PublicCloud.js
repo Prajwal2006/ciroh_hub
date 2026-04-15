@@ -1,26 +1,97 @@
 import React from 'react';
 import Link from '@docusaurus/Link';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 import InfrastructureAccessSection from './InfrastructureAccessSection';
 import { useColorMode } from '@docusaurus/theme-common';
 
 const PublicCloud = () => {
   const { colorMode } = useColorMode();
   const isDark = colorMode === 'dark';
+  const awsLogo = useBaseUrl('/img/logos/corp/aws-black.svg');
+  const gcpLogo = useBaseUrl('/img/logos/corp/google-cloud.jpg');
+
+  const awsRequestLink = 'https://github.com/CIROH-UA/NGIAB-CloudInfra/issues/new?template=case_studies_call_template.yml&labels=infrastructure%2Cresource-request%2Caws&title=%5BAWS%20Resource%20Request%5D%3A%20';
+  const gcpRequestLink = 'https://github.com/CIROH-UA/NGIAB-CloudInfra/issues/new?template=gcp_cloud_resources_request.yml&labels=infrastructure%2Cresource-request%2Cgoogle&title=%5BGCP%20Resource%20Request%5D%3A%20';
+
+  const providerCardBaseStyle = {
+    padding: '1.5rem',
+    borderRadius: '0.875rem',
+    border: isDark ? '1px solid rgba(71, 85, 105, 0.65)' : '1px solid rgba(148, 163, 184, 0.4)',
+    background: isDark ? 'rgba(15, 23, 42, 0.55)' : 'rgba(255, 255, 255, 0.92)',
+    boxShadow: isDark ? '0 10px 24px rgba(2, 6, 23, 0.28)' : '0 10px 24px rgba(15, 23, 42, 0.08)'
+  };
 
   const steps = [
     {
-      title: "Submit Unified Access Request",
-      description: "Primary Investigators (PIs) or Workshop Leads leading CIROH projects or workshops should use this single form to request AWS, Google Cloud, and/or CIROH-2i2c JupyterHub access. Access is available to all consortium members and partners.",
-      buttons: [
-        {
-          text: "Cloud Infrastructure Request Form",
-          link: "https://github.com/CIROH-UA/NGIAB-CloudInfra/issues/new?template=case_studies_call_template.yml"
-        }
-      ],
+      title: "Requesting Project Access",
+      description: "Primary Investigators (PIs) or Workshop Leads leading CIROH projects or workshops can request public cloud resources through the provider-specific forms below. Choose AWS or Google Cloud based on where you want the resource provisioned.",
+      content: (
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '1rem' }}>
+          <div style={providerCardBaseStyle}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.75rem' }}>
+              <div style={{ width: '3rem', height: '3rem', borderRadius: '0.75rem', display: 'flex', alignItems: 'center', justifyContent: 'center', background: isDark ? 'rgba(245, 158, 11, 0.16)' : 'rgba(245, 158, 11, 0.12)', overflow: 'hidden', padding: '0.45rem' }}>
+                <img src={awsLogo} alt="AWS logo" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+              </div>
+              <div>
+                <h4 style={{ margin: 0, fontSize: '1.125rem', fontWeight: 700, color: 'var(--ifm-heading-color)' }}>AWS Resource</h4>
+                <p style={{ margin: '0.2rem 0 0', color: 'var(--ifm-color-emphasis-600)', fontSize: '0.92rem' }}>Provision CIROH AWS resources for your project.</p>
+              </div>
+            </div>
+
+            <p style={{ margin: '0 0 1rem', color: 'var(--ifm-color-emphasis-700)', lineHeight: 1.6 }}>
+              Use this form when you need AWS services such as EC2, S3, EBS, RDS, VPC, or other AWS-managed infrastructure.
+            </p>
+
+            <a
+              href={awsRequestLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', width: '100%', padding: '0.8rem 1rem', background: 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)', color: '#ffffff', fontWeight: 600, textDecoration: 'none', borderRadius: '0.625rem' }}
+            >
+              Create AWS Request
+              <svg width={18} height={18} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                <polyline points="15 3 21 3 21 9" />
+                <line x1="10" y1="14" x2="21" y2="3" />
+              </svg>
+            </a>
+          </div>
+
+          <div style={providerCardBaseStyle}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.75rem' }}>
+              <div style={{ width: '3rem', height: '3rem', borderRadius: '0.75rem', display: 'flex', alignItems: 'center', justifyContent: 'center', background: isDark ? 'rgba(59, 130, 246, 0.18)' : 'rgba(59, 130, 246, 0.1)', overflow: 'hidden', padding: '0.2rem' }}>
+                <img src={gcpLogo} alt="Google Cloud logo" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+              </div>
+              <div>
+                <h4 style={{ margin: 0, fontSize: '1.125rem', fontWeight: 700, color: 'var(--ifm-heading-color)' }}>GCP Resource</h4>
+                <p style={{ margin: '0.2rem 0 0', color: 'var(--ifm-color-emphasis-600)', fontSize: '0.92rem' }}>Provision CIROH Google Cloud resources for your project.</p>
+              </div>
+            </div>
+
+            <p style={{ margin: '0 0 1rem', color: 'var(--ifm-color-emphasis-700)', lineHeight: 1.6 }}>
+              Use this form when you need Google Cloud services such as Compute Engine, Cloud Storage, BigQuery, GKE, VPC, IAM, or related tooling.
+            </p>
+
+            <a
+              href={gcpRequestLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', width: '100%', padding: '0.8rem 1rem', background: 'linear-gradient(135deg, #2563eb 0%, #0891b2 100%)', color: '#ffffff', fontWeight: 600, textDecoration: 'none', borderRadius: '0.625rem' }}
+            >
+              Create GCP Request
+              <svg width={18} height={18} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                <polyline points="15 3 21 3 21 9" />
+                <line x1="10" y1="14" x2="21" y2="3" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      ),
       details: (
         <>
-          <p style={{marginBottom: '0.75rem'}}>1. Submit one GitHub request outlining the public cloud and/or 2i2c resources your project needs.</p>
-          <p style={{marginBottom: '0.75rem'}}>2. Indicate whether you need AWS, Google Cloud, and/or CIROH-2i2c CPU/GPU access for your team.</p>
+          <p style={{marginBottom: '0.75rem'}}>1. Select the provider card that matches the environment you want provisioned for your project.</p>
+          <p style={{marginBottom: '0.75rem'}}>2. Complete the cloud resource request form with your project details, required services, timeline, and estimated cost.</p>
           <p style={{marginBottom: '0.75rem'}}>3. Our team will review the request, coordinate provisioning, and follow up if more information is needed.</p>
           <p style={{marginBottom: '0.75rem'}}>
             <strong>Reference:</strong> Please refer to{' '}
@@ -49,18 +120,7 @@ const PublicCloud = () => {
         {' '}to provide access to their cloud computing services. Review the linked documentation for account request steps and guidance.
       </p>
       
-      <div style={{
-        padding: '1rem 1.5rem',
-        background: 'var(--ifm-color-info-contrast-background)',
-        border: '1px solid var(--ifm-color-info-dark)',
-        borderRadius: '0.5rem',
-        marginBottom: '2rem',
-        borderLeft: '4px solid var(--ifm-color-info)'
-      }}>
-        <p style={{margin: 0, color: 'var(--ifm-color-emphasis-800)'}}>
-          <strong>Note:</strong> This same request process now covers CIROH-2i2c JupyterHub access, so you only need to submit one request for cloud and JupyterHub needs.
-        </p>
-      </div>
+      
     </div>
   );
 

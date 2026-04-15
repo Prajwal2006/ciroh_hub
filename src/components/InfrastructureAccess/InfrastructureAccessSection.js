@@ -153,10 +153,18 @@ const InfrastructureAccessSection = ({
                     </h3>
                     <p style={{ color: 'var(--ifm-color-emphasis-700)', lineHeight: 1.625, marginBottom: '1rem' }}>{step.description}</p>
 
+                    {step.content && (
+                      <div style={{ marginTop: '1rem' }}>
+                        {step.content}
+                      </div>
+                    )}
+
                     {step.details && expandedStep === index && (
                       <div style={{ marginTop: '1rem', padding: '1rem', background: theme.expandedDetails.bg, border: `1px solid ${theme.expandedDetails.border}`, borderRadius: '0.5rem', display: 'flex', gap: '0.75rem' }}>
                         <Info size={20} style={{ color: theme.expandedDetails.iconColor, flexShrink: 0, marginTop: '0.125rem' }} />
-                        <p style={{ fontSize: '0.875rem', color: 'var(--ifm-color-emphasis-700)' }}>{step.details}</p>
+                        <div style={{ fontSize: '0.875rem', color: 'var(--ifm-color-emphasis-700)', lineHeight: 1.6 }}>
+                          {step.details}
+                        </div>
                       </div>
                     )}
 
