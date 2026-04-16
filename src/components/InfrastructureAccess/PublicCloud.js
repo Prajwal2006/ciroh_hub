@@ -323,7 +323,7 @@ const PublicCloud = () => {
           </ul>
 
           <a 
-            href="https://github.com/CIROH-UA/NGIAB-CloudInfra/issues/new?assignees=&labels=infrastructure&projects=&template=exceeding_budget_request.md&title="
+            href="https://github.com/CIROH-UA/NGIAB-CloudInfra/issues/new?template=exceeding_budget_request.yml"
             target="_blank"
             rel="noopener noreferrer"
             style={{
