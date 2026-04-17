@@ -105,8 +105,7 @@ const CIROHJupyterHub = () => {
               {' '}file by exporting your conda environment.
             </li>
             <li style={{lineHeight: 1.6}}>
-              Open a ticket in the CIROH image repository and describe the software or image changes you need. Create issue here:
-              
+              Open a ticket in the CIROH image repository and describe the software or image changes you need using the link below.
             </li>
           </ol>
           
