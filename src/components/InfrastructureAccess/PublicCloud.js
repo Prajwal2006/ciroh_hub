@@ -11,7 +11,7 @@ const PublicCloud = () => {
   const gcpLogo = useBaseUrl('/img/logos/corp/google-cloud.jpg');
 
   const awsRequestLink = 'https://github.com/CIROH-UA/NGIAB-CloudInfra/issues/new?template=case_studies_call_template.yml&labels=infrastructure%2Cresource-request%2Caws&title=%5BAWS%20Resource%20Request%5D%3A%20';
-  const gcpRequestLink = 'https://github.com/CIROH-UA/NGIAB-CloudInfra/issues/new?template=gcp_cloud_resources_request.yml&labels=infrastructure%2Cresource-request%2Cgoogle&title=%5BGCP%20Resource%20Request%5D%3A%20';
+  const gcpRequestLink = 'https://github.com/CIROH-UA/NGIAB-CloudInfra/issues/new?template=case_studies_call_template.yml&labels=infrastructure%2Cresource-request%2Cgoogle&title=%5BGCP%20Resource%20Request%5D%3A%20';
 
   const providerCardBaseStyle = {
     padding: '1.5rem',
