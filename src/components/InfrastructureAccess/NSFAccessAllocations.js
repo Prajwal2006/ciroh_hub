@@ -40,14 +40,6 @@ const NSFAccessAllocations = () => {
       title="NSF ACCESS Allocations through CIROH"
       description={description}
       steps={steps}
-      helpBox={{
-        title: "Need Help?",
-        content: (
-          <>
-            If you are unable to access the forms, please contact the CIROH team at <a href="mailto:ciroh-it-support@ua.edu">ciroh-it-support@ua.edu</a> for assistance.
-          </>
-        )
-      }}
       successBox={{
         title: "You're All Set!",
         description: "Once you're granted access, you're ready to begin using the resources!",
