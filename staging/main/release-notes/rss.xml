@@ -4,32 +4,68 @@
         <title>CIROH Hub Blog</title>
         <link>http://ciroh.org/staging/main/release-notes</link>
         <description>CIROH Hub Blog</description>
-        <lastBuildDate>Mon, 03 Aug 2026 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 28 Aug 2026 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
         <item>
-            <title><![CDATA[08-03-2026 Release Notes]]></title>
-            <link>http://ciroh.org/staging/main/release-notes/v20260803</link>
-            <guid>http://ciroh.org/staging/main/release-notes/v20260803</guid>
-            <pubDate>Mon, 03 Aug 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[Major CIROH Hub update for July!]]></description>
-            <content:encoded><![CDATA[
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="new-content">New Content<a href="http://ciroh.org/staging/main/release-notes/v20260803#new-content" class="hash-link" aria-label="Direct link to New Content" title="Direct link to New Content" translate="no">​</a></h2>
+            <title><![CDATA[08-28-2026 Release Notes]]></title>
+            <link>http://ciroh.org/staging/main/release-notes/v20260828</link>
+            <guid>http://ciroh.org/staging/main/release-notes/v20260828</guid>
+            <pubDate>Fri, 28 Aug 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[Major CIROH Hub update for August!]]></description>
+            <content:encoded><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="blog-posts-and-news-updates">Blog posts and news updates<a href="http://ciroh.org/staging/main/release-notes/v20260828#blog-posts-and-news-updates" class="hash-link" aria-label="Direct link to Blog posts and news updates" title="Direct link to Blog posts and news updates" translate="no">​</a></h2>
+<ul>
+<li class="">New blog post: <a class="" href="http://ciroh.org/staging/main/blog/summer-institute-flash-flood">NextGen In A Box (NGIAB) and CIROH Cyberinfrastructure Power Flash Flood Research at the 2026 Summer Institute</a> (<a href="https://github.com/CIROH-UA/ciroh_hub/pull/176" target="_blank" rel="noopener noreferrer" class="">#176</a>)</li>
+<li class="">New blog post: <a class="" href="http://ciroh.org/staging/main/blog/fim-community-ecosystem">CIROH Flood Inundation Mapping (FIM) Community Ecosystem: A Large-Scale Operational Flood Modeling-to-Evaluation Framework</a> (<a href="https://github.com/CIROH-UA/ciroh_hub/pull/176" target="_blank" rel="noopener noreferrer" class="">#176</a>)</li>
+<li class="">Community NextGen News update: August 2026 Release (<a href="https://github.com/CIROH-UA/ciroh_hub/pull/172" target="_blank" rel="noopener noreferrer" class="">#172</a>)</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="new-content">New content<a href="http://ciroh.org/staging/main/release-notes/v20260828#new-content" class="hash-link" aria-label="Direct link to New content" title="Direct link to New content" translate="no">​</a></h2>
+<ul>
+<li class="">Added documentation page for <a class="" href="http://ciroh.org/staging/main/docs/products/ngiab-ecosystem/nrds/nrds-visualizer">the NRDS Visualizer</a>. (<a href="https://github.com/CIROH-UA/ciroh_hub/pull/182" target="_blank" rel="noopener noreferrer" class="">#182</a>)</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="updates">Updates<a href="http://ciroh.org/staging/main/release-notes/v20260828#updates" class="hash-link" aria-label="Direct link to Updates" title="Direct link to Updates" translate="no">​</a></h2>
+<ul>
+<li class="">Community NextGen Ecosystem documentation: New high-level grouping for NGIAB, NRDS, and CCNH (<a href="https://github.com/CIROH-UA/ciroh_hub/pull/163" target="_blank" rel="noopener noreferrer" class="">#163</a>)</li>
+<li class="">Research Portal: New "Group" filter for Hydroshare portals (<a href="https://github.com/CIROH-UA/ciroh_hub/pull/164" target="_blank" rel="noopener noreferrer" class="">#164</a>)</li>
+<li class="">Community Impact: Updated statistics (<a href="https://github.com/CIROH-UA/ciroh_hub/pull/177" target="_blank" rel="noopener noreferrer" class="">#177</a>)</li>
+<li class="">Data Management documentation: Updated info regarding Google Cloud and Azure Blobs on  page (<a href="https://github.com/CIROH-UA/ciroh_hub/pull/178" target="_blank" rel="noopener noreferrer" class="">#178</a>, <a href="https://github.com/CIROH-UA/ciroh_hub/pull/179" target="_blank" rel="noopener noreferrer" class="">#179</a>)</li>
+<li class="">Confluence page: Added two newly-announced sessions (<a href="https://github.com/CIROH-UA/ciroh_hub/pull/182" target="_blank" rel="noopener noreferrer" class="">#182</a>)</li>
+<li class="">Upgraded to Docusaurus 3.10.2 (<a href="https://github.com/CIROH-UA/ciroh_hub/pull/183" target="_blank" rel="noopener noreferrer" class="">#183</a>)</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="bugfixes">Bugfixes<a href="http://ciroh.org/staging/main/release-notes/v20260828#bugfixes" class="hash-link" aria-label="Direct link to Bugfixes" title="Direct link to Bugfixes" translate="no">​</a></h2>
+<ul>
+<li class="">Confluence page: Addressed CSS and form issues (<a href="https://github.com/CIROH-UA/ciroh_hub/pull/181" target="_blank" rel="noopener noreferrer" class="">#181</a>)</li>
+</ul>
+]]></content:encoded>
+            <category>Release Notes</category>
+            <category>CIROH Hub</category>
+        </item>
+        <item>
+            <title><![CDATA[08-26-2026 Release Notes]]></title>
+            <link>http://ciroh.org/staging/main/release-notes/v20260826</link>
+            <guid>http://ciroh.org/staging/main/release-notes/v20260826</guid>
+            <pubDate>Wed, 26 Aug 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[Major CIROH Hub update for August!]]></description>
+            <content:encoded><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="new-content">New Content<a href="http://ciroh.org/staging/main/release-notes/v20260826#new-content" class="hash-link" aria-label="Direct link to New Content" title="Direct link to New Content" translate="no">​</a></h2>
 <ul>
 <li class="">Added contribution form for publications on the <a class="" href="http://ciroh.org/staging/main/contribute">contribute page</a> (<a href="https://github.com/CIROH-UA/ciroh_hub/pull/113" target="_blank" rel="noopener noreferrer" class="">#113</a>)</li>
+<li class="">Reworked Community FIM Ecosystem section; added FIMbench (<a href="https://github.com/CIROH-UA/ciroh_hub/pull/146" target="_blank" rel="noopener noreferrer" class="">#146</a>)</li>
 <li class="">Added <code>rs_route</code> under NGIAB in Documentation (<a href="https://github.com/CIROH-UA/ciroh_hub/pull/150" target="_blank" rel="noopener noreferrer" class="">#150</a>)</li>
+<li class="">Added Calendar page and Confluence subpage under Community section (<a href="https://github.com/CIROH-UA/ciroh_hub/pull/169" target="_blank" rel="noopener noreferrer" class="">#169</a>)</li>
 </ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="accessibility">Accessibility<a href="http://ciroh.org/staging/main/release-notes/v20260803#accessibility" class="hash-link" aria-label="Direct link to Accessibility" title="Direct link to Accessibility" translate="no">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="accessibility">Accessibility<a href="http://ciroh.org/staging/main/release-notes/v20260826#accessibility" class="hash-link" aria-label="Direct link to Accessibility" title="Direct link to Accessibility" translate="no">​</a></h2>
 <ul>
-<li class="">Added site-wide reduced motion toggle (<a href="https://github.com/CIROH-UA/ciroh_hub/pull/125" target="_blank" rel="noopener noreferrer" class="">#148</a>)</li>
+<li class="">Added site-wide reduced motion toggle (<a href="https://github.com/CIROH-UA/ciroh_hub/pull/148" target="_blank" rel="noopener noreferrer" class="">#148</a>)</li>
 </ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="updates">Updates<a href="http://ciroh.org/staging/main/release-notes/v20260803#updates" class="hash-link" aria-label="Direct link to Updates" title="Direct link to Updates" translate="no">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="updates">Updates<a href="http://ciroh.org/staging/main/release-notes/v20260826#updates" class="hash-link" aria-label="Direct link to Updates" title="Direct link to Updates" translate="no">​</a></h2>
 <ul>
+<li class="">Upgraded to Docusaurus 3.10.1 (<a href="https://github.com/CIROH-UA/ciroh_hub/pull/145" target="_blank" rel="noopener noreferrer" class="">#145</a>)</li>
 <li class="">Updated link to Working Group intake form (<a href="https://github.com/CIROH-UA/ciroh_hub/pull/152" target="_blank" rel="noopener noreferrer" class="">#152</a>)</li>
 <li class="">Expanded page content for Data Access (<a href="https://github.com/CIROH-UA/ciroh_hub/pull/154" target="_blank" rel="noopener noreferrer" class="">#154</a>, <a href="https://github.com/CIROH-UA/ciroh_hub/pull/157" target="_blank" rel="noopener noreferrer" class="">#157</a>)</li>
+<li class="">Moved FIM Database to Data Management subsection (<a href="https://github.com/CIROH-UA/ciroh_hub/pull/162" target="_blank" rel="noopener noreferrer" class="">#162</a>)</li>
 </ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="bugfixes">Bugfixes<a href="http://ciroh.org/staging/main/release-notes/v20260803#bugfixes" class="hash-link" aria-label="Direct link to Bugfixes" title="Direct link to Bugfixes" translate="no">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="bugfixes">Bugfixes<a href="http://ciroh.org/staging/main/release-notes/v20260826#bugfixes" class="hash-link" aria-label="Direct link to Bugfixes" title="Direct link to Bugfixes" translate="no">​</a></h2>
 <ul>
 <li class="">Addressed dead links to CIROH Portal (<a href="https://github.com/CIROH-UA/ciroh_hub/pull/155" target="_blank" rel="noopener noreferrer" class="">#155</a>)</li>
 <li class="">Fixed selector visibility on Publications form (<a href="https://github.com/CIROH-UA/ciroh_hub/pull/156" target="_blank" rel="noopener noreferrer" class="">#156</a>)</li>
@@ -61,7 +97,8 @@
 <li class="">Updated Cyberinfrastructure SOPs to v1.2, reflecting migration from CIROH DocuHub to CIROH Hub (<a href="https://github.com/CIROH-UA/ciroh_hub/pull/138" target="_blank" rel="noopener noreferrer" class="">#138</a>)</li>
 <li class="">Added join link to Working Groups page (<a href="https://github.com/CIROH-UA/ciroh_hub/pull/139" target="_blank" rel="noopener noreferrer" class="">#139</a>)</li>
 <li class="">Fixed an outdated link on the NWM BigQuery API page (<a href="https://github.com/CIROH-UA/ciroh_hub/pull/142/changes" target="_blank" rel="noopener noreferrer" class="">#142</a>)</li>
-</ul>]]></content:encoded>
+</ul>
+]]></content:encoded>
             <category>Release Notes</category>
             <category>CIROH Hub</category>
         </item>
@@ -412,35 +449,6 @@ As such, this and all prior release notes refer to DocuHub changes and are retai
 <li class="">Fixes to Community Impact page (<a href="https://github.com/CIROH-UA/ciroh-ua_website/pull/471" target="_blank" rel="noopener noreferrer" class="">#471</a>, <a href="https://github.com/CIROH-UA/ciroh-ua_website/pull/468" target="_blank" rel="noopener noreferrer" class="">#468</a>)</li>
 <li class="">Corrected error in "NWM, NextGen, and NGIAB" page (<a href="https://github.com/CIROH-UA/ciroh-ua_website/pull/469" target="_blank" rel="noopener noreferrer" class="">#469</a>)</li>
 <li class="">Updated news entries for NGIAB-HPCInfra and CIROH community forks of ngen/troute (<a href="https://github.com/CIROH-UA/ciroh-ua_website/pull/467" target="_blank" rel="noopener noreferrer" class="">#467</a>)</li>
-</ul>
-]]></content:encoded>
-            <category>Release Notes</category>
-            <category>CIROH Hub</category>
-        </item>
-        <item>
-            <title><![CDATA[08-29-2025 Release Notes]]></title>
-            <link>http://ciroh.org/staging/main/release-notes/v20250829</link>
-            <guid>http://ciroh.org/staging/main/release-notes/v20250829</guid>
-            <pubDate>Fri, 29 Aug 2025 00:00:00 GMT</pubDate>
-            <description><![CDATA[Major CIROH Hub update for August 2025!]]></description>
-            <content:encoded><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="new-content">New content<a href="http://ciroh.org/staging/main/release-notes/v20250829#new-content" class="hash-link" aria-label="Direct link to New content" title="Direct link to New content" translate="no">​</a></h2>
-<ul>
-<li class="">Added product pages for CIROH's community forks of NextGen repositories (<a href="https://github.com/CIROH-UA/ciroh-ua_website/pull/460" target="_blank" rel="noopener noreferrer" class="">#460</a>)</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="blog-posts-and-news-updates">Blog posts and news updates<a href="http://ciroh.org/staging/main/release-notes/v20250829#blog-posts-and-news-updates" class="hash-link" aria-label="Direct link to Blog posts and news updates" title="Direct link to Blog posts and news updates" translate="no">​</a></h2>
-<ul>
-<li class="">Blog post: <a class="" href="http://ciroh.org/staging/main/blog/logan-river-collaboration">"Cross-Institutional Collaboration Enhances Hydrologic Modeling in the Logan River Watershed"</a> (<a href="https://github.com/CIROH-UA/ciroh-ua_website/pull/457" target="_blank" rel="noopener noreferrer" class="">#457</a>)</li>
-<li class="">Blog post: <a class="" href="http://ciroh.org/staging/main/blog/nextgen-marfc-performance">"Evaluating NextGen’s Performance in the MARFC Region with NGIAB"</a> (<a href="https://github.com/CIROH-UA/ciroh-ua_website/pull/453" target="_blank" rel="noopener noreferrer" class="">#453</a>)</li>
-<li class="">News update: August 2025 (<a href="https://github.com/CIROH-UA/ciroh-ua_website/pull/446" target="_blank" rel="noopener noreferrer" class="">#462</a>)<!-- -->
-<ul>
-<li class=""><strong>Hotfix, 9/2:</strong> Updated news entries for NGIAB-HPCInfra and CIROH community forks of ngen/troute.</li>
-</ul>
-</li>
-</ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="updates">Updates<a href="http://ciroh.org/staging/main/release-notes/v20250829#updates" class="hash-link" aria-label="Direct link to Updates" title="Direct link to Updates" translate="no">​</a></h2>
-<ul>
-<li class="">Added link to NGIAB's academic paper in "NGIAB Reaches 10,000 Docker Pulls" (<a href="https://github.com/CIROH-UA/ciroh-ua_website/pull/462" target="_blank" rel="noopener noreferrer" class="">#462</a>)</li>
-<li class="">Minor updates and visual improvements to the Community Impact page (<a href="https://github.com/CIROH-UA/ciroh-ua_website/pull/461" target="_blank" rel="noopener noreferrer" class="">#461</a>)</li>
 </ul>
 ]]></content:encoded>
             <category>Release Notes</category>

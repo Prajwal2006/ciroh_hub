@@ -2,11 +2,302 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>http://ciroh.org/staging/main/blog</id>
     <title>CIROH Hub Blog</title>
-    <updated>2026-06-29T00:00:00.000Z</updated>
+    <updated>2026-08-24T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="http://ciroh.org/staging/main/blog"/>
     <subtitle>CIROH Hub Blog</subtitle>
     <icon>http://ciroh.org/staging/main/img/logos/CIROH_Hub_logo.png</icon>
+    <entry>
+        <title type="html"><![CDATA[NextGen In A Box (NGIAB) and CIROH Cyberinfrastructure Power Flash Flood Research at the 2026 Summer Institute]]></title>
+        <id>http://ciroh.org/staging/main/blog/summer-institute-flash-flood</id>
+        <link href="http://ciroh.org/staging/main/blog/summer-institute-flash-flood"/>
+        <updated>2026-08-24T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Ten graduate students in three teams had seven weeks to bring sub-hourly radar rainfall, precipitation uncertainty, and ensemble forecasting methods into the NextGen Water Resources Modeling Framework. Here's how NGIAB and CIROH cyberinfrastructure carried the load.]]></summary>
+        <content type="html"><![CDATA[<p>On July 4, 2025, a flash flood on the Guadalupe River caused 119 fatalities in Kerr County, Texas.
+It was the deadliest flash flood in the United States since 1976, and a reminder that flash floods
+remain among the most dangerous weather hazards in the country. Forecasting them means working at
+the speed and scale of the storm: small basins, minutes to hours, and rainfall estimates that can
+make or break the prediction.</p>
+<p>That challenge set the agenda for our theme at the 2026 Water Prediction Innovators Summer Institute:
+<strong>Advancing the Use of Quantitative Precipitation Inputs into the NextGen Framework</strong>. Ten graduate
+students in three teams (Don't Runoff!, FlashCast, and The Post-Processors) had seven weeks to bring
+sub-hourly radar rainfall, precipitation uncertainty, and ensemble forecasting methods into the
+NextGen Water Resources Modeling Framework. Seven weeks is not much, and the teams could not spend half
+of it compiling a modeling framework or downloading terabytes of radar data to laptops. Fortunately, they did
+not have to. The CIROH cyberinfrastructure team carried that load.</p>
+<figure style="text-align:center"><img src="http://ciroh.org/staging/main/img/blog/2026-08-summer-institute/dont-runoff-team.png" width="100%" alt="Team Don't Runoff! members Leo Lonzarich, Azizur Rahman, and Jessica Keiser."><figcaption><em>Team Don't Runoff! (left to right): Leo Lonzarich, Azizur Rahman, Jessica Keiser.</em></figcaption></figure>
+<figure style="text-align:center"><img src="http://ciroh.org/staging/main/img/blog/2026-08-summer-institute/flashcast-team.png" width="100%" alt="Team FlashCast members Alex Lastner, Danna Villarreal, and Bikas Gupta."><figcaption><em>Team FlashCast (left to right): Alex Lastner, Danna Villarreal, Bikas Gupta.</em></figcaption></figure>
+<figure style="text-align:center"><img src="http://ciroh.org/staging/main/img/blog/2026-08-summer-institute/post-processors-team.png" width="100%" alt="Team The Post-Processors members Mohammad Mosavat, Niloufar Soheili, Aldo Andres Tapia Araya, and Amirhossein Montazeri."><figcaption><em>Team The Post-Processors (left to right): Mohammad Mosavat, Niloufar Soheili, Aldo Andres Tapia Araya, Amirhossein Montazeri.</em></figcaption></figure>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="the-framework-fits-in-the-box">The framework fits in the Box<a href="http://ciroh.org/staging/main/blog/summer-institute-flash-flood#the-framework-fits-in-the-box" class="hash-link" aria-label="Direct link to The framework fits in the Box" title="Direct link to The framework fits in the Box" translate="no">​</a></h2>
+<p>NextGen is powerful but challenging to run. NextGen In A Box (NGIAB), CIROH's containerized
+distribution with more than 41,000 Docker pulls, turns that setup problem into a single pull
+command. This year's Summer Institute members were able to hit the ground running after
+just a single one-hour NGIAB workshop, demonstrating its sheer accessibility.</p>
+<p>However, the teams did more than just run it. NGIAB is also an <em>open</em> box, and they took full
+advantage by extending it:</p>
+<ul>
+<li class=""><strong>FlashCast</strong> built a modified NGIAB Docker image that runs CFE and T-Route on a 15 minute
+timestep and forced it with 15 minute MRMS radar rainfall, expanding the framework's standard
+hourly configuration to the sub-hourly scales flash floods demand.</li>
+<li class=""><strong>The Post-Processors</strong> modified the NGIAB data preprocess library so NextGen could ingest MRMS
+radar estimates and HRRR forecast rainfall in place of the default AORC forcing. They then simulated
+8,474 catchments around Ellicott City, Maryland.</li>
+<li class=""><strong>Don't Runoff!</strong> built a volume-preserving workflow that maps 2 minute, 1 km MRMS rainfall onto
+NextGen Hydrofabric catchments and used it to drive dHBV2-Flash, a new sub-hourly differentiable
+model designed for the framework.</li>
+</ul>
+<p>Every modification lives in a container or a public repository. Any researcher can pull the same
+image, rerun the same experiment, and build on it. That is the point of the box: NGIAB enables
+maximal portability and reproducibility to maximize research's impact. For the complete set of shared
+resources, see each team's <a href="https://www.hydroshare.org/resource/7b2b22d88a914bb79b3f48e5ea3ecaaf/" target="_blank" rel="noopener noreferrer" class="">final report</a>.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="r2ohc-platform-nsf-jetstream2-and-ngiab-did-the-heavy-lifting">R2OHC Platform: NSF Jetstream2 and NGIAB did the heavy lifting<a href="http://ciroh.org/staging/main/blog/summer-institute-flash-flood#r2ohc-platform-nsf-jetstream2-and-ngiab-did-the-heavy-lifting" class="hash-link" aria-label="Direct link to R2OHC Platform: NSF Jetstream2 and NGIAB did the heavy lifting" title="Direct link to R2OHC Platform: NSF Jetstream2 and NGIAB did the heavy lifting" translate="no">​</a></h2>
+<p>None of this fits on a laptop. FlashCast alone ran 2,280 simulation scenarios per basin across
+three flash flood case studies (Asheville NC, Pittsburgh PA, and Kerrville TX) — 6,840 NextGen runs
+in total. The Post-Processors pushed 500 synthetic storms through NGIAB to train a neural network
+surrogate, on top of storm displacement experiments across thousands of catchments. Don't Runoff!
+processed radar rainfall for over 5,000 flash flood events across the country and trained a
+differentiable model on years of 15-minute data.</p>
+<p>The computing resources came from CIROH cyberinfrastructure, which provided allocations on
+<a class="" href="http://ciroh.org/staging/main/docs/services/external-resources/nsf-access/jetstream">NSF Jetstream2</a>, Indiana University's
+NSF-funded academic cloud, through CIROH's ACCESS allocation (EES240087). JetStream2 hosted virtual machines
+sized for each team's workload, from batch NGIAB runs to model training. The rainfall came from
+NOAA open data: 2-minute MRMS radar estimates, hourly AORC forcings, and HRRR forecasts, all pulled
+straight from public cloud archives. <a href="https://www.hydroshare.org/" target="_blank" rel="noopener noreferrer" class="">CUAHSI HydroShare</a>
+closed the loop as the publication home for datasets and supplementary materials, and the
+<a href="https://github.com/nwc-cuahsi-summer-institute" target="_blank" rel="noopener noreferrer" class="">NWC-CUAHSI-Summer-Institute GitHub organization</a>
+hosts the code.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="what-the-teams-built">What the teams built<a href="http://ciroh.org/staging/main/blog/summer-institute-flash-flood#what-the-teams-built" class="hash-link" aria-label="Direct link to What the teams built" title="Direct link to What the teams built" translate="no">​</a></h2>
+<p><strong>Team Don't Runoff!</strong> delivered <a href="https://nwc-cuahsi-summer-institute.github.io/runoff/" target="_blank" rel="noopener noreferrer" class="">RUNOFF v1.0</a>,
+a CONUS-scale catalog of over 5,000 flash flood
+events from the NOAA Storm Events Database, each mapped to hydrofabric catchments and paired with a
+USGS gauge and quality-controlled MRMS rainfall. RUNOFF is designed to conduct flash flood modeling
+experiments using high-quality precipitation estimates. They also delivered
+<a href="https://github.com/NWC-CUAHSI-Summer-Institute/dhbv2-flash" target="_blank" rel="noopener noreferrer" class="">dHBV2-Flash</a>, a
+15-minute differentiable rainfall-runoff model that captured event peaks in the Upper Neuse basin
+with a median peak flow bias of 16% across 1,132 events. Supplementary materials are on
+<a href="https://hydroshare.org/resource/761d02556fbe4100809e17eaef44edd9/" target="_blank" rel="noopener noreferrer" class="">HydroShare</a>.</p>
+<p><strong>Team FlashCast</strong> addressed a question at the heart of flash flood prediction: how fine, and how
+accurate, does the precipitation input need to be? Their
+<a href="https://github.com/NWC-CUAHSI-Summer-Institute/nextgen_spatiotemporal_sensitivity" target="_blank" rel="noopener noreferrer" class="">sensitivity pipeline</a>
+converts thousands of
+NGIAB runs into critical uncertainty matrices, the precipitation uncertainty a forecast can tolerate
+before predictions stop being actionable. Early results from the three case studies point to a
+scale-dependent answer: for these events, resolution finer than about 7 km and 1 hour added little
+on its own, as long as storm volume was preserved. The pipeline is built to put that threshold to
+the test across many more basins and storms. Methods and figures are on
+<a href="https://www.hydroshare.org/resource/96f00a9eaef44b3ba4c00ddb24f70087/" target="_blank" rel="noopener noreferrer" class="">HydroShare</a>.</p>
+<p><strong>The Post-Processors</strong> built <a href="https://github.com/NWC-CUAHSI-Summer-Institute/NCET-data-preprocess" target="_blank" rel="noopener noreferrer" class="">NCET</a>,
+the Neighboring Catchment Ensemble Technique, which turns a
+single deterministic NextGen simulation into an ensemble streamflow forecast by borrowing
+hydrographs from neighboring catchments. Applied to the May 2018 Ellicott City flash flood with a
+real HRRR forecast, NCET recovered a flood the deterministic forecast missed, with the largest gains
+in probabilistic skill when the ensemble weights were aimed along the storm's displacement. That
+early result suggests storm location, more than catchment similarity, should steer the ensemble, and
+it points to a computationally inexpensive path toward flash flood forecasting within NextGen. The
+team also prototyped Replace and Route, a BMI component that lets NextGen borrow discharge from
+high-fidelity external models at hydrofabric nexus points. Evaluation materials are on HydroShare.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="from-asking-research-questions-to-prototyping-workflows-in-seven-weeks">From asking research questions to prototyping workflows, in seven weeks<a href="http://ciroh.org/staging/main/blog/summer-institute-flash-flood#from-asking-research-questions-to-prototyping-workflows-in-seven-weeks" class="hash-link" aria-label="Direct link to From asking research questions to prototyping workflows, in seven weeks" title="Direct link to From asking research questions to prototyping workflows, in seven weeks" translate="no">​</a></h2>
+<p>Each product is <a class="" href="http://ciroh.org/staging/main/docs/products/ngiab-ecosystem/dependencies/hydrofabric/">hydrofabric</a>-native,
+open, and packaged into containers, BMI modules, and reproducible pipelines — the way that the
+Community NextGen ecosystem expects. This ease of access and reuse is research to operations in miniature,
+and it is what CIROH cyberinfrastructure is for. NGIAB collapsed setup time from weeks to minutes.
+NSF's Jetstream2 scaled experiments beyond what any student laptop could run. Open data archives fed
+the models, and HydroShare and GitHub made every result citable and reusable. The students arrived
+with research questions. They left behind open prototypes, datasets, and code for the community to
+build on.</p>
+<hr>
+<p><em>The 2026 Water Prediction Innovators Summer Institute took place June 8 — July 22, 2026. 24 graduate
+student fellows from 21 unique U.S. institutions formed research teams under the guidance of seven
+Theme Leaders, spanning topics from precipitation forecasting to flood risk communication. Research
+outcomes are summarized in the
+<a href="https://www.hydroshare.org/resource/7b2b22d88a914bb79b3f48e5ea3ecaaf/" target="_blank" rel="noopener noreferrer" class="">2026 WPI SI final report</a>.</em></p>
+<p><em>The teams thank the CIROH Cyberinfrastructure &amp; DevOps team and Hydroinformatics team at the
+Alabama Water Institute (Arpita Patel, Josh Cunningham, Quinn Lee, Nia Minor, and colleagues) for
+cloud provisioning and NextGen support throughout the program, Dr. Fred Ogden for guidance on
+developments with the NextGen framework, and the Summer Institute coordinators, Megan Vardaman and
+Nana Oye Djan. This work used Jetstream2 through allocation EES240087 from the NSF ACCESS program.
+This research was supported by the Cooperative Institute for Research to Operations in Hydrology
+(CIROH) under award NA22NWS4320003 from the NOAA Cooperative Institute Program.</em></p>]]></content>
+        <author>
+            <name>Alex Lastner</name>
+            <uri>https://www.geol.umd.edu/alexanderlastner</uri>
+        </author>
+        <author>
+            <name>Danna Villarreal</name>
+            <uri>https://muenichlab.uark.edu/team/</uri>
+        </author>
+        <author>
+            <name>Bikas Gupta</name>
+            <uri>https://www.linkedin.com/in/bikas-chandra-gupta-48881b153</uri>
+        </author>
+        <author>
+            <name>Jessica Keiser</name>
+            <uri>https://geography.sdsu.edu/people/students</uri>
+        </author>
+        <author>
+            <name>Leo Lonzarich</name>
+            <uri>https://www.linkedin.com/in/leoglonz</uri>
+        </author>
+        <author>
+            <name>Azizur Rahman</name>
+        </author>
+        <author>
+            <name>Aldo Andres Tapia Araya</name>
+            <uri>https://has.arizona.edu/person/aldo-andres-tapia-araya</uri>
+        </author>
+        <author>
+            <name>Amirhossein Montazeri</name>
+            <uri>https://www.boisestate.edu/computing/about-us/computingdirectory/current-students-directory/amirhossein-montazeri/</uri>
+        </author>
+        <author>
+            <name>Niloufar Soheili</name>
+            <uri>https://www.ccny.cuny.edu/profiles/niloufar-soheili</uri>
+        </author>
+        <author>
+            <name>Mohammad Mosavat</name>
+            <uri>https://moradkhani.ua.edu/people</uri>
+        </author>
+        <author>
+            <name>Mohamed Abdelkader</name>
+            <uri>https://iihr.uiowa.edu/people/mohamed-abdelkader</uri>
+        </author>
+        <author>
+            <name>Humberto Vergara</name>
+            <uri>https://engineering.uiowa.edu/directory/humberto-vergara</uri>
+        </author>
+        <category label="Blog" term="Blog"/>
+        <category label="CIROH" term="CIROH"/>
+        <category label="Summer Institute" term="Summer Institute"/>
+        <category label="NextGen" term="NextGen"/>
+        <category label="NGIAB" term="NGIAB"/>
+        <category label="Flash Flood" term="Flash Flood"/>
+        <category label="Jetstream2" term="Jetstream2"/>
+        <category label="NSF Access" term="NSF Access"/>
+        <category label="MRMS" term="MRMS"/>
+        <category label="HydroShare" term="HydroShare"/>
+        <category label="Cloud Services" term="Cloud Services"/>
+        <category label="National Water Model" term="National Water Model"/>
+        <category label="R2OHC" term="R2OHC"/>
+        <category label="CIROH Community Resources" term="CIROH Community Resources"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[CIROH Flood Inundation Mapping (FIM) Community Ecosystem: A Large-Scale Operational Flood Modeling-to-Evaluation Framework]]></title>
+        <id>http://ciroh.org/staging/main/blog/fim-community-ecosystem</id>
+        <link href="http://ciroh.org/staging/main/blog/fim-community-ecosystem"/>
+        <updated>2026-08-20T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[A large-scale, cloud-native, open-source ecosystem for flood inundation modeling, simulation, benchmarking, and evaluation, built at the University of Alabama's Surface Dynamics Modeling Lab with support from CIROH.]]></summary>
+        <content type="html"><![CDATA[<p>Flood Inundation Mapping (FIM) is the spatially explicit delineation of flood extent, turning hydrological forecasts and observations into actionable geospatial information. As the frequency and severity of flooding increase globally, accurate and scalable FIM has become essential to disaster preparedness, emergency response, infrastructure planning, and climate risk assessment. Operationally, flood maps are commonly generated from streamflow forecasts, such as those produced by NOAA's National Water Model in the United States. FIM, however, is only one part of the workflow. Before FIM can reliably inform decisions, it needs to be rigorously checked against high-quality observations of real flood events.</p>
+<p>At the University of Alabama's Surface Dynamics Modeling Lab (SDML), with support from CIROH in partnership with NOAA, we have been building the CIROH FIM Community Ecosystem, an interconnected, open-source, Python-based suite of toolsets for large-scale flood inundation modeling, simulation, benchmarking, and evaluation. Below we describe what each component of the Ecosystem does, how they work together, and how to get started.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="the-problem-fragmented-capabilities-without-a-unified-fim-framework">The problem: fragmented capabilities without a unified FIM framework<a href="http://ciroh.org/staging/main/blog/fim-community-ecosystem#the-problem-fragmented-capabilities-without-a-unified-fim-framework" class="hash-link" aria-label="Direct link to The problem: fragmented capabilities without a unified FIM framework" title="Direct link to The problem: fragmented capabilities without a unified FIM framework" translate="no">​</a></h2>
+<p>This effort starts with a simple question: can flood inundation modeling, benchmarking, and evaluation be brought together into a seamless, unified, and, most importantly, scalable system that serves both operational forecasters and the research community? What exists today are small-scale studies and individual tools: models predict floods, methods that evaluate accuracy, observations that record real events, each built for a specific task and demanding its own painstaking setup. What does not exist is a unified framework spanning modeling to evaluation at scale, for one study area or a thousand, so that methodologies are consistent and ready to calibrate models and test hypotheses. For operational forecasters, the missing piece is scale: mapping a single basin is a tractable problem, but operational forecasting requires generating and trusting a modeling approach across numerous river reaches in real time.</p>
+<p>Evaluation raises the bar further. A model's true potential and limitations emerge only when it is tested at scale across many events, diverse floodplains, topographic settings, and hydrologic regimes. Large-scale evaluation is what turns a case study into a defensible conclusion about where a model works, where it fails, and why. Yet such evaluation depends on an "answer key": high-quality records of flood inundation for real flooding events. Those benchmark data have historically been scarce, scattered, and inconsistent, and where benchmarks are unavailable or of poor quality, evaluations lose credibility, and even skillful models are met with mistrust. The result: research groups rebuild the same pipelines from scratch, evaluations cannot be compared across regions or scales, and promising models take longer to reach the people who need them.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="our-effort-the-ciroh-fim-ecosystem">Our effort: the CIROH FIM Ecosystem<a href="http://ciroh.org/staging/main/blog/fim-community-ecosystem#our-effort-the-ciroh-fim-ecosystem" class="hash-link" aria-label="Direct link to Our effort: the CIROH FIM Ecosystem" title="Direct link to Our effort: the CIROH FIM Ecosystem" translate="no">​</a></h2>
+<p>Our answer is an interconnected, interoperable system of open-source components designed to work together through simple programmatic interfaces. Most components are deployed as standalone Python packages: install only what you need, or chain them into a complete workflow.</p>
+<figure style="text-align:center"><img class="dark-mode-white-bg" src="http://ciroh.org/staging/main/img/blog/2026-08-fim-ecosystem/ecosystem-overview.png" width="100%" alt="The CIROH FIM ecosystem at a glance: FIMserv and FIMsim for generation and simulation, FIMbench for benchmarking, FIMeval for evaluation, FIMbox as a sandbox, and FIMsens for observation, all sharing one CIROH cloud backbone."><figcaption><em>The CIROH FIM ecosystem at a glance: FIMserv (generation) and FIMsim (simulations); FIMbench (benchmark database); FIMeval (evaluation); FIMbox (sandbox); FIMsens (observation). Each is a standalone tool, all sharing one CIROH cloud backbone.</em></figcaption></figure>
+<!-- -->
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="a-fimserv-fim-generation-tool-using-the-noaa-owp-hand-fim-operational-framework">(a) FIMserv: FIM generation tool using the NOAA OWP HAND-FIM operational framework<a href="http://ciroh.org/staging/main/blog/fim-community-ecosystem#a-fimserv-fim-generation-tool-using-the-noaa-owp-hand-fim-operational-framework" class="hash-link" aria-label="Direct link to (a) FIMserv: FIM generation tool using the NOAA OWP HAND-FIM operational framework" title="Direct link to (a) FIMserv: FIM generation tool using the NOAA OWP HAND-FIM operational framework" translate="no">​</a></h3>
+<p>The Office of Water Prediction's Height Above Nearest Drainage (OWP HAND) framework, the operational FIM system of the United States, is a deliberately simple terrain-based model run over Hydrologic Unit Code 8 (HUC8) watersheds (<a href="https://nas.er.usgs.gov/hucs.aspx" target="_blank" rel="noopener noreferrer" class="">more about HUCs</a>) using National Water Model streamflow predictions across 2.7 million river reaches nationwide. Configuring it, however, is not straightforward: setting up the full pipeline from watershed data to streamflow and reproducing it across computing systems have been persistent obstacles to applying, improving, or studying an otherwise scalable model. <a href="https://github.com/sdmlua/FIMserv" target="_blank" rel="noopener noreferrer" class="">FIMserv</a>, the modeling component of the CIROH FIM Ecosystem, removes that barrier. Given a watershed of interest and an event, it automatically configures the entire modeling setup, retrieving the OWP-precalculated watershed data from CIROH's AWS S3 cloud storage (which mirrors the NOAA OWP-precalculated HUC8 datasets for the HAND FIM run) and the NWM streamflow for the chosen event (a past event, also called retrospective data; a live National Water Model forecast; USGS gauge records; or global hydrological products such as GeoGLOWS). It then leverages the <a href="https://github.com/NOAA-OWP/inundation-mapping" target="_blank" rel="noopener noreferrer" class="">OWP inundation mapping framework</a> to produce a flood extent map within minutes (Baruah et al., 2025). It covers NOAA's full forecast range, from hourly short-range runs to 30-day outlooks, and supports simulation of many watersheds and flood events. It can also evaluate the NWM streamflow against USGS gauge observations, providing a measure of confidence in a map's inputs. Users can also modify key configuration inputs, such as river slope, calibration coefficients, and river bathymetry, supporting experimentation well beyond the default modeling setup. It is wrapped as a Python package that runs just as well on a laptop as on cloud infrastructure, so what once took a long time now takes a single installation command.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="b-fimeval-fim-predictions-evaluation-framework">(b) FIMeval: FIM predictions evaluation framework<a href="http://ciroh.org/staging/main/blog/fim-community-ecosystem#b-fimeval-fim-predictions-evaluation-framework" class="hash-link" aria-label="Direct link to (b) FIMeval: FIM predictions evaluation framework" title="Direct link to (b) FIMeval: FIM predictions evaluation framework" translate="no">​</a></h3>
+<p>A flood map is only as useful as the confidence placed in it, and that confidence comes from evaluation: comparing a model-predicted extent against a benchmark flood map from an actual or synthetic event. The traditional methods of evaluation, however, are manual, time-intensive, and error-prone; preparing maps in GIS platforms and/or doing it programmatically, and standardizing models and benchmarks (such as removing permanent water bodies and aligning projections) is so laborious that testing a model across many events becomes impractical. <a href="https://github.com/sdmlua/fimeval" target="_blank" rel="noopener noreferrer" class="">FIMeval</a> automates, standardizes, and scales that step, evaluating any flood maps against benchmarks in a consistent, reproducible manner (Devi et al., 2026). It is deliberately model- and benchmark-agnostic: the map can come from any terrain-based, hydraulic, or data-driven model, and the benchmark from any trusted source. It computes several standard accuracy metrics, with built-in checks for how data imbalance between flooded and dry areas skews those scores. It then goes further, answering the impact-based question communities actually ask: which buildings does the model predict will be inundated, and was that prediction correct? It fits into any Python-based workflow: bring a flood map, whether produced by FIMserv or any other model, together with a benchmark you supply, and FIMeval scores the pair. What makes it especially powerful, though, is that users do not need to supply a benchmark at all: FIMeval connects seamlessly to the FIMbench database, so a single automated query pulls the right quality-controlled benchmark for your area and event and scores against it, provided the event date falls within our available benchmark coverage. FIMbench itself is our rigorously quality-controlled, multi-source benchmark database, described in detail in section (c) below. For FIMserv users, the evaluation can run embedded within FIMserv, generating and evaluating a map in a single pass. Demonstrations span major observed events and design floods alike across continental to global watersheds.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="c-fimbench-an-extensive-fim-benchmarking-database">(c) FIMbench: an extensive FIM benchmarking database<a href="http://ciroh.org/staging/main/blog/fim-community-ecosystem#c-fimbench-an-extensive-fim-benchmarking-database" class="hash-link" aria-label="Direct link to (c) FIMbench: an extensive FIM benchmarking database" title="Direct link to (c) FIMbench: an extensive FIM benchmarking database" translate="no">​</a></h3>
+<p>Trusting a model-predicted flood extent requires real-world evidence, precisely the benchmark data that has been hardest to obtain. <a href="https://github.com/sdmlua/fimbench" target="_blank" rel="noopener noreferrer" class="">FIMbench</a> fills that gap with a rigorously quality-controlled library of multi-source, multi-sensor benchmark flood maps. Its current release includes 190+ maps (it will continuously keep growing with time) across the United States (Devi et al., in preparation), derived from aerial imagery acquired via NOAA's National Geodetic Survey (NGS), PlanetScope satellite imagery, Sentinel-1 radar, FEMA Base Level Engineering (BLE) 100- and 500-year return-period flow-based FIM products, and FIMs derived from USGS-surveyed high-water marks. Every map undergoes standardized processing and quality screening and is cataloged into quality- and product-based tiers; the guiding philosophy is "quality over quantity." FIMbench utilities then package each approved map into a database-compatible format and publish it to the CIROH AWS S3 database. Contributing to the database is currently limited to the SDML team, though we are exploring ways for the community to add data in the future; every published dataset, however, is openly available to everyone. Access follows two routes: the interactive <a href="https://tethys.ciroh.org/apps/fimbench-gui/" target="_blank" rel="noopener noreferrer" class="">FIMbench WebApp</a>, developed with our partners at Aquaveo, supports visualizing, filtering, and downloading flood events; and the FIMbench Python API retrieves selected benchmarks programmatically from the <a href="https://sdmlab.ciroh.org/#FIM_Database/" target="_blank" rel="noopener noreferrer" class="">cloud-hosted CIROH AWS S3 database</a>. A cataloged, quality-assured, multi-sensor benchmark collection at this national scale has not, to our knowledge, been openly published before; paired with FIMeval, it makes testing a flood model against hundreds of real events practical rather than prohibitively laborious.</p>
+<figure style="text-align:center"><img class="dark-mode-white-bg" src="http://ciroh.org/staging/main/img/blog/2026-08-fim-ecosystem/fimbench-webapp.png" width="100%" alt="Homepage snapshot of the extensive Flood Inundation Mapping Benchmark data web portal."><figcaption><em>Homepage snapshot of the extensive Flood Inundation Mapping Benchmark data web portal (Web portal: <a href="https://tethys.ciroh.org/apps/fimbench-gui/"></a><a href="https://tethys.ciroh.org/apps/fimbench-gui/" target="_blank" rel="noopener noreferrer" class="">https://tethys.ciroh.org/apps/fimbench-gui/</a>)</em></figcaption></figure>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="d-fimsens-flood-extent-and-depth-from-satellite-observations">(d) FIMsens: flood extent and depth from satellite observations<a href="http://ciroh.org/staging/main/blog/fim-community-ecosystem#d-fimsens-flood-extent-and-depth-from-satellite-observations" class="hash-link" aria-label="Direct link to (d) FIMsens: flood extent and depth from satellite observations" title="Direct link to (d) FIMsens: flood extent and depth from satellite observations" translate="no">​</a></h3>
+<p>FIMsens, an upcoming Ecosystem component, adds an observation mode to the ecosystem: an end-to-end toolset that turns satellite imagery into error-corrected flood extent and depth products. Given a user-defined area of interest and event period, FIMsens discovers and previews suitable SAR or optical scenes, then processes them through linked modules for initial flood detection, reliability assessment, omission reconstruction, and depth estimation, beginning with Seeded Local Adaptive Thresholding (SLAT) (Wang et al., under review), which extracts the inundation directly observable in the imagery. The detections then pass to the Flood Object Reliability Filter (FOR-Filter) (Tian et al., in preparation), which uses image, geometric, terrain, and hydrologic evidence to remove or flag likely false positives before they propagate downstream. Finally, RS-FloodXDepth (Tian et al., 2026) combines retained flood evidence with surrounding topography to reconstruct hydrologically plausible inundation that would otherwise be missed due to vegetation, urban structures, clouds, or weak water signals, and to estimate depth from the inferred water surface and DEM elevation. A single pass delivers raw, filtered, and corrected extent layers together with a DEM-guided depth map.</p>
+<p>Within the broader ecosystem, FIMsens complements rather than replaces the curated FIMbench reference databases. The same algorithm underpins FIMbench's Tier 2 and Tier 3 benchmarks, where its output is conservatively confirmed through qualitative assessment. Where the rigorously quality-controlled FIMbench database has a match, that curated map stays the trusted reference. Where no suitable benchmark exists, FIMsens can be used to generate event-specific, observation-derived flood extent and depth products from available satellite imagery, providing additional spatial and temporal coverage for FIMeval and related analyses. Because these event-specific products depend on the quality of the selected observations and processing conditions, they should still be reviewed through the toolset's QA outputs and, where appropriate, qualitative inspection before being used as reference information.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="e-fimsim-cloud-based-multi-model-flood-simulation">(e) FIMsim: cloud-based multi-model flood simulation<a href="http://ciroh.org/staging/main/blog/fim-community-ecosystem#e-fimsim-cloud-based-multi-model-flood-simulation" class="hash-link" aria-label="Direct link to (e) FIMsim: cloud-based multi-model flood simulation" title="Direct link to (e) FIMsim: cloud-based multi-model flood simulation" translate="no">​</a></h3>
+<p>FIMsim expands the ecosystem's flood-simulation engine, which models flooding using either terrain-based or hydraulic approaches: it runs the terrain-based <a href="https://github.com/NOAA-OWP/inundation-mapping" target="_blank" rel="noopener noreferrer" class="">NOAA OWP HAND-FIM</a> through FIMserv, the <a href="https://github.com/MikeFHS/curve2flood" target="_blank" rel="noopener noreferrer" class="">ARC-Curve2Flood model</a>, and extends the workflow to 2D hydraulic simulation using models with varying levels of physical complexity. Because no single flood model performs best everywhere, comparing alternatives has meant rebuilding a pipeline for each one; <a href="https://github.com/sdmlua/FIMsim" target="_blank" rel="noopener noreferrer" class="">FIMsim</a> removes that burden. In practice, the workflow is simple: the user defines a study area, and FIMsim acquires the inputs, builds the model configuration, and runs the hydrodynamic models of their choice, such as <a href="https://zenodo.org/records/6912932" target="_blank" rel="noopener noreferrer" class="">LISFLOOD-FP</a> and <a href="https://triton.ornl.gov/" target="_blank" rel="noopener noreferrer" class="">TRITON</a>. These hydrodynamic models provide GPU-enabled implementations that can substantially reduce execution time for computationally demanding simulations. Through the planned web application, users will be able to run the models remotely in a GPU-enabled Linux environment and download the results without installing the software locally. Different models can be run across catchments, or several models over a single catchment for agreement and ensemble analysis; integrating FIMeval and FIMbench provides evaluation for every output. Since FIMsim can be set up and run for every reach, a hypothesis can be tested across models rather than trusted to just one model. Simulation is not its only use. FIMsim can also serve purely as a preprocessor for hydraulic modeling, generating each input required for a 2D model separately. It can produce a mosaicked, clipped, reprojected, and resampled DEM at different spatial resolutions; generate Manning's n roughness grids from land-cover datasets of different sources, years, and resolutions; provide flowline data; and obtain inflow hydrographs from NWM, a USGS gauge, or an uploaded CSV file. The processed inputs can be exported in several commonly used formats, allowing modelers to use the ready-to-run files directly in their preferred hydraulic modeling engine. Today, FIMsim is available as a Python framework and a desktop application for macOS and Windows; a pip-installable Python library and a web application are also under development.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="f-fimbox-a-sandbox-for-large-scale-multi-model-fim-development-and-analysis">(f) FIMbox: a sandbox for large-scale, multi-model FIM development and analysis<a href="http://ciroh.org/staging/main/blog/fim-community-ecosystem#f-fimbox-a-sandbox-for-large-scale-multi-model-fim-development-and-analysis" class="hash-link" aria-label="Direct link to (f) FIMbox: a sandbox for large-scale, multi-model FIM development and analysis" title="Direct link to (f) FIMbox: a sandbox for large-scale, multi-model FIM development and analysis" translate="no">​</a></h3>
+<p><a href="https://github.com/sdmlua/fimbox" target="_blank" rel="noopener noreferrer" class="">FIMbox</a> is an open-source Python sandbox that treats flood inundation mapping as a controlled experiment: models, inputs, and parameters become variables that a researcher deliberately sets, holds fixed, or sweeps across in a single, reproducible run. A run begins with a boundary polygon for any area of interest rather than a precalculated HUC8, and a shared initialization step stages the common resources every model needs into one working directory: the DEM, NHD and NWM hydrography, FEMA NFHL flood hazard layers, NLD levees, OSM bridges and roads, and USGS gauge records. A configuration wrapper then exposes each subsequent stage, so a user-defined topography, hydrography, or roughness field is applied where it matters. The experiment setup determines which models to run, the terrain-based HAND workflow, a hydrodynamic model, or both. Each model triggers its own preprocessor, which builds only the datasets it needs and pulls inflows from the National Water Model or NextGen, or through the crosswalk module from global sources such as GEOGloWS.</p>
+<p>Where FIMserv runs only the operational OWP HAND framework over precalculated HUC8 data, FIMbox opens the pipeline itself. Its HAND FIM modeling breaks the OWP HAND-FIM pre- and post-processing chain (from a DEM to a mapped extent) into small composable pieces: staging inputs, hydroconditioning the terrain, segmenting the stream network, generating HAND and its synthetic rating curves, calibrating them, generating the FIM, and evaluating it. Every stage exposes its parameters and writes intermediate products the user can inspect, replace, or feed back in, so a dataset or a coefficient can be substituted at one step and its consequences traced through to the mapped extent and depth. Because each dataset and parameter is a variable under the user's control, questions that are ordinarily laborious become routine: how much the resolution or the source of the river network, catchments, or DEM changes the predicted extent; how sensitive the result is to Manning's n roughness; and whether a better synthetic rating curve, a different stream segmentation, or an improved slope treatment sharpens extent and depth. Dask parallelization runs across the whole HAND pipeline, so the same workflow scales from a single basin to continental domains without rewriting a line of code, and the package runs the same way on a local workstation or on cloud computing resources.</p>
+<p>What sets FIMbox apart is that a single experiment carries seamlessly from modeling through evaluation to benchmarking. Within one run it can drive a terrain-based HAND solution and, through the integrated FIMsim framework, a hydrodynamic model such as TRITON or LISFLOOD-FP, without altering their native configurations, then score each predicted extent with FIMeval against the best-matching FIMbench benchmark, selected by event date, geographic domain, spatial overlap, quality tier, or any combination of these; where no benchmark exists, FIMsens can attempt to derive one from satellite imagery. Because the whole chain, from fetching flows to scoring the result, is scriptable from a notebook or a scheduled job, FIMbox makes FIM research genuinely iterative: a hypothesis can be posed, tested, and scored at any scale, one basin or a thousand, with no manual handoffs between tools. That same design makes multi-model analysis natural, and work is now underway to extend the sandbox beyond a single model toward ensemble, multi-model FIM extents, repurposing results from a range of hydrologic models through the same workflow. Looking ahead, integrating NOAA's Next Generation Water Resources Modeling Framework (NextGen) will close the loop from meteorological forcing through hydrologic and inundation modeling to flood-extent assessment and evaluation, an end-to-end ecosystem simulation.</p>
+<figure style="text-align:center"><img class="dark-mode-white-bg" src="http://ciroh.org/staging/main/img/blog/2026-08-fim-ecosystem/fimbox-workflow.jpg" width="100%" alt="The FIMbox modular workflow: shared inputs feed swappable stages, from model initialization and preprocessing to FIM generation and evaluation."><figcaption><em>The FIMbox modular workflow: shared inputs feed swappable stages, from model initialization and preprocessing to FIM generation and evaluation, so terrain-based (e.g., HAND) or hydrodynamic models can be configured, run, and compared in one framework, with FIMsim, FIMeval, and FIMbench plugged in for simulation, evaluation, and benchmarks.</em></figcaption></figure>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="when-should-you-use-the-fim-ecosystem">When should you use the FIM ecosystem?<a href="http://ciroh.org/staging/main/blog/fim-community-ecosystem#when-should-you-use-the-fim-ecosystem" class="hash-link" aria-label="Direct link to When should you use the FIM ecosystem?" title="Direct link to When should you use the FIM ecosystem?" translate="no">​</a></h2>
+<p>Each component can be used on its own; you do not need to adopt the entire ecosystem to benefit from a single component. However, integrating the components opens up research questions that no single component can answer alone. A few common starting points:</p>
+<ul>
+<li class=""><em>"I need flood maps for a forecast or a past event or a synthetic scenario anywhere in the US; however, I need them fast and running on any local or cloud system."</em> FIMserv can do that.</li>
+<li class=""><em>"I built a flood inundation model, hydraulic, data-driven, or otherwise, and I have my own benchmark; I want to know how accurate the model is."</em> FIMeval can do that.</li>
+<li class=""><em>"I built a flood inundation model intended for regional, continental, or global application, and I want to investigate its potential and limitations across different hydroclimates and topographic settings."</em> FIMeval, leveraging the FIMbench database, can do that.</li>
+<li class=""><em>"I just need reliable benchmark flood maps for my study area."</em> FIMbench, via the GUI or the Python API, can provide that.</li>
+<li class=""><em>"I want to prepare the inputs for a 2D hydrodynamic model such as LISFLOOD-FP or TRITON, or run the model itself, wherever I need and without the usual setup hassle."</em> FIMsim can do that, in a desktop app or Python framework, either handing you ready-to-run inputs and configuration to run on your own or running the simulation for you.</li>
+<li class=""><em>"I want to run several flood models over the same watershed for ensemble and agreement analysis or assign a different model to each catchment according to what performs best there."</em> FIMbox can do that, orchestrating the models through FIMsim and passing every result on to FIMeval and FIMbench for evaluation.</li>
+<li class=""><em>"I want to experiment with the HAND workflow itself, swapping terrain, roughness, calibration, or model engines, feeding it custom or repurposed streamflow, and scaling from a single basin to continental domains."</em> FIMbox can do that, breaking the workflow into flexible, Dask-parallel pieces that run straight through to evaluation.</li>
+<li class=""><em>"I want to test a hypothesis on the terrain-based NOAA OWP HAND model, evaluating it across dozens or hundreds of events to judge whether the approach can be implemented across the US."</em> The integrated ecosystem can enable that: FIMserv handles the modeling, and FIMeval, drawing benchmarks from FIMbench, handles the evaluation; the entire process is automated, programmatically and seamlessly.</li>
+<li class=""><em>"I have no benchmark for my event and need to derive a flood extent and depth directly from satellite imagery."</em> FIMsens can do that (once integrated), turning SAR or optical scenes into error-corrected extent and depth products.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="under-the-hood-technical-dissemination">Under the hood: technical dissemination<a href="http://ciroh.org/staging/main/blog/fim-community-ecosystem#under-the-hood-technical-dissemination" class="hash-link" aria-label="Direct link to Under the hood: technical dissemination" title="Direct link to Under the hood: technical dissemination" translate="no">​</a></h2>
+<p>Technically, the ecosystem is a modular, cloud-native suite of open-source Python packages and frameworks. What holds it together is a shared CIROH cloud backbone: every component reads and writes the same cloud-hosted data, so one tool's output is directly consumable by the next. FIMserv streams its inputs on demand: precalculated HAND hydrofabrics from the CIROH AWS S3 buckets, retrospective National Water Model (NWM) streamflow from NOAA's public S3 archive, and forecast NetCDF files from Google Cloud Storage, with the TEEHR framework's PySpark engine handling massive streamflow extractions. FIMeval builds on the standard geospatial Python stack (Rasterio, PyProj, GeoPandas, Shapely) for raster reprojection, map algebra, and dynamic bounding geometries based on different evaluation methods. The heavy layers it needs on the fly, such as permanent water bodies and Microsoft building footprints for impact-based assessment, are hosted on ArcGIS Online and other cloud services and fetched through REST endpoints for the evaluation domain only, so nothing oversized ever lands on the user's machine. FIMbench's dissemination rests on a decoupled web architecture: a Tethys Platform backend acts as a tile proxy, streaming compressed vector tiles of benchmark FIM extent straight from the CIROH AWS S3 storage to a React front end that renders interactive maps with MapLibre GL. The same S3 store serves the stateless FIMbench Python API, so the database remains a single, consistent source of truth, regardless of how it is accessed. FIMbox adds a parallel execution layer: it decomposes the HAND workflow into independent per-branch computations (hydroconditioning, branching, relative elevation, and synthetic rating curves) and uses Dask to distribute those branches across local cores or cloud workers. FIMsim moves computation to the cloud, provisioning the hydrodynamic engines on managed resources and assembling their inputs from public sources: USGS 3DEP terrain, land-cover-derived roughness, and NWM, USGS, or user-supplied hydrographs. Hardware is the one practical dividing line across the ecosystem: FIMbox's terrain-based HAND workflows run on ordinary local systems without a GPU, while the full FIMbox and FIMsim capability, terrain-based modeling coupled with 2D hydrodynamic simulation, is currently GPU-backed for accelerating the computation and Linux-based. FIMsens will add the observation path, query SAR and optical image catalogs, align downloaded scenes to a common DEM, and then hand them to the correction routine described above.</p>
+<figure style="text-align:center"><img class="dark-mode-white-bg" src="http://ciroh.org/staging/main/img/blog/2026-08-fim-ecosystem/technical-architecture.jpg" width="100%" alt="Technical architecture components of the ecosystem: FIMserv assembles HAND-based flood maps from cloud-hosted terrain and streamflow data sources; FIMeval retrieves benchmarks and evaluation layers from cloud-hosted endpoints; and FIMbench disseminates its curated database via the web portal and the Python API."><figcaption><em>Technical architecture components of the ecosystem: FIMserv assembles HAND-based flood maps from cloud-hosted terrain and streamflow data sources; FIMeval retrieves benchmarks and evaluation layers from cloud-hosted endpoints; and FIMbench disseminates its curated database via the web portal and the Python API, drawing from a single AWS S3 source of truth.</em></figcaption></figure>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="who-is-it-for-try-it-today">Who is it for? Try it today<a href="http://ciroh.org/staging/main/blog/fim-community-ecosystem#who-is-it-for-try-it-today" class="hash-link" aria-label="Direct link to Who is it for? Try it today" title="Direct link to Who is it for? Try it today" translate="no">​</a></h2>
+<p>The CIROH FIM Community Ecosystem is completely open source and already in active use across the community: as of mid-2026, PyPI records put FIMserv past 45,000 downloads and FIMeval past 20,000, with the FIMbench API and the FIMbox testbed more recently released. How you start depends on the component: four of them are installed as Python packages with a single command (Astral uv makes it faster still), FIMsim ships as a desktop application, and FIMsens will join once released.</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#F8F8F2"><span class="token plain">uv/pip install fimserve   # flood map generation</span><br></div><div class="token-line" style="color:#F8F8F2"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#F8F8F2"><span class="token plain">uv/pip install fimeval    # flood map evaluation</span><br></div><div class="token-line" style="color:#F8F8F2"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#F8F8F2"><span class="token plain">uv/pip install fimbench   # benchmark database access</span><br></div><div class="token-line" style="color:#F8F8F2"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#F8F8F2"><span class="token plain">uv/pip install fimbox     # FIM testbed access</span><br></div></code></pre></div></div>
+<p>Each framework is provided with step-by-step documentation and example notebooks on its GitHub repository: <a href="https://github.com/sdmlua/FIMserv/tree/main/docs" target="_blank" rel="noopener noreferrer" class="">FIMserv</a>, <a href="https://github.com/sdmlua/fimeval/tree/main/docs" target="_blank" rel="noopener noreferrer" class="">FIMeval</a>, <a href="https://github.com/sdmlua/fimbench/docs" target="_blank" rel="noopener noreferrer" class="">FIMbench</a>, <a href="https://github.com/sdmlua/fimbox#module-documentation" target="_blank" rel="noopener noreferrer" class="">FIMbox</a> and so on, so any user can go from installation to a first flood map and its evaluation without leaving the documentation. Run them wherever you work, from a laptop to Google Colab or CIROH's 2i2c JupyterHub. Prefer a point-and-click route? The <a href="https://tethys.ciroh.org/apps/fimbench-gui/" target="_blank" rel="noopener noreferrer" class="">FIMbench web portal</a> lets you browse the benchmark database, and FIMsim runs today as a desktop application.</p>
+<p>Who benefits from the FIM ecosystem? Broadly, anyone who works with flood hazard modeling. From researchers testing new models to forecasters, planners, engineers, and students, each takes something different from it: a place to experiment, options they can defend in operations, and flood information that has been checked before it is trusted. Our goal is simple: anyone, whatever their background, can make a flood map, check it against reality, and trust what it tells them.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="get-involved">Get involved<a href="http://ciroh.org/staging/main/blog/fim-community-ecosystem#get-involved" class="hash-link" aria-label="Direct link to Get involved" title="Direct link to Get involved" translate="no">​</a></h2>
+<p>The FIM ecosystem is a living effort, and feedback will improve it. We will appreciate your feedback and suggestions about technical problems, proposed utilities, and additional components. We are committed to incorporating that input into each release, and collaboration is what we need most. The ecosystem is still very much in motion: not every framework yet has its own graphical interface, and some are not yet packaged for PyPI, but many avenues and dimensions are advancing in parallel. Keep an eye out for new releases, and email us about collaborations, ideas, or anything you would like to build with us. All the FIM components code lives in the <a href="https://github.com/sdmlua" target="_blank" rel="noopener noreferrer" class="">SDML GitHub repository</a>, and each repository has its own contribution guidelines: open an issue with a new idea or a bug, submit a contribution, or simply reach out to the <a href="https://sdml.ua.edu/" target="_blank" rel="noopener noreferrer" class="">SDML team</a>. We would genuinely love to hear from you; it is how this ecosystem will keep evolving. And this is only a start: the CIROH FIM Community Ecosystem is not limited to the components described here. We want it to grow beyond SDML, with colleagues across CIROH institutions and the broader community contributing new components, datasets, and ideas that strengthen it as a shared, community-owned capability.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="acknowledgments">Acknowledgments<a href="http://ciroh.org/staging/main/blog/fim-community-ecosystem#acknowledgments" class="hash-link" aria-label="Direct link to Acknowledgments" title="Direct link to Acknowledgments" translate="no">​</a></h2>
+<p>This work is supported by the National Oceanic and Atmospheric Administration (NOAA) through the Cooperative Institute for Research to Operations in Hydrology (CIROH) under the NOAA Cooperative Agreement with The University of Alabama (NA22NWS4320003). We thank the Aquaveo team for collaborating on the development of the Graphical User Interfaces for these tools.</p>
+<p><strong>CIROH cyberinfrastructure used:</strong> <a href="https://ciroh-owp-hand-fim.ciroh.org/index.html" target="_blank" rel="noopener noreferrer" class="">CIROH AWS S3 cloud storage</a> hosts the OWP-precalculated HUC8 HAND hydrofabric datasets streamed on demand by FIMserv, and hosts the <a href="https://sdmlab.ciroh.org/#FIM_Database/" target="_blank" rel="noopener noreferrer" class="">FIMbench benchmark database</a>; the CIROH Tethys Platform / CIROH Portal hosts the <a href="https://tethys.ciroh.org/apps/fimbench-gui/" target="_blank" rel="noopener noreferrer" class="">FIMbench WebApp</a>, developed with our partners at Aquaveo (we are also thinking of hosting a curated virtual environment/image on 2i2c services soon). This cyberinfrastructure is the backbone that makes the ecosystem scalable and interoperable: because every component reads from and writes to the same CIROH cloud-hosted data, one tool's output is directly consumable by the next, and users never need to download oversized national datasets. CIROH's Tethys hosting and 2i2c JupyterHub lower the barrier further, providing point-and-click and zero-install routes into the tools, while CIROH compute resources make evaluation across hundreds of events and continental-scale runs practical rather than prohibitive.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="additional-links">Additional Links<a href="http://ciroh.org/staging/main/blog/fim-community-ecosystem#additional-links" class="hash-link" aria-label="Direct link to Additional Links" title="Direct link to Additional Links" translate="no">​</a></h3>
+<ul>
+<li class="">Understand the CIROH FIM ecosystem visually: <a href="https://sdml.ua.edu/fim-ecosystem/" target="_blank" rel="noopener noreferrer" class="">https://sdml.ua.edu/fim-ecosystem/</a></li>
+<li class="">Explore the CIROH FIM ecosystem more interactively with our <a href="https://notebooklm.google.com/notebook/0cbf3ebc-9ebd-41c9-ba56-24922c934be7/artifact/66c95aa6-5532-4a64-b3db-3dde7c000b70?utm_source=nlm_web_share&amp;utm_medium=google_oo&amp;utm_campaign=art_share_1&amp;utm_content=&amp;utm_smc=nlm_web_share_google_oo_art_share_1_" target="_blank" rel="noopener noreferrer" class="">NotebookLM Mind Map</a></li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="publications">Publications<a href="http://ciroh.org/staging/main/blog/fim-community-ecosystem#publications" class="hash-link" aria-label="Direct link to Publications" title="Direct link to Publications" translate="no">​</a></h2>
+<ol>
+<li class="">Baruah, A., Dhital, S., Cohen, S., Tran, T.N.D., Elhaddad, H., Watts, C.L., Devi, D., Chen, Y., &amp; Pruitt, C. (2025). FIMserv v.1.0: A tool for streamlining Flood Inundation Mapping (FIM) using the United States operational hydrological forecasting framework. <em>Environmental Modelling &amp; Software</em>, 192, 106581. <a href="https://doi.org/10.1016/j.envsoft.2025.106581" target="_blank" rel="noopener noreferrer" class="">https://doi.org/10.1016/j.envsoft.2025.106581</a></li>
+<li class="">Devi, D., Dhital, S., Munasinghe, D., Cohen, S., Baruah, A., Chen, Y., Tian, D., &amp; Pruitt, C. (2026). A framework for the evaluation of flood inundation predictions over extensive benchmark databases. <em>Environmental Modelling &amp; Software</em>, 196, 106786. <a href="https://doi.org/10.1016/j.envsoft.2025.106786" target="_blank" rel="noopener noreferrer" class="">https://doi.org/10.1016/j.envsoft.2025.106786</a></li>
+<li class="">Devi, D., Munasinghe, D., Tian, D., Dhital, S., Cohen, S., Raghavan, R., Swain, N., Nikrou, P., Baruah, A., &amp; Chen, Y. (in preparation). FIMbench: A benchmark database of multi-tier flood inundation maps for large-scale evaluation.</li>
+<li class="">Tian, D., Liu, H., Wang, L., Cohen, S., &amp; Mandal, T. (2026). RS-FloodXDepth: Enhancing remote sensing-derived flood extent and estimating flood depth using a hydrologically guided region-growing method and high-resolution DEMs. <em>Water Resources Research</em>, 62, e2025WR042384. <a href="https://doi.org/10.1029/2025WR042384" target="_blank" rel="noopener noreferrer" class="">https://doi.org/10.1029/2025WR042384</a></li>
+<li class="">Tian, D., Liu, H., Cohen, S., &amp; Wang, L. (in preparation). Commission error analysis and correction in remote sensing flood maps using an object-oriented, hydrologically informed approach.</li>
+<li class="">Wang, L., Liu, H., Tian, D., &amp; Cohen, S. (2025, under review). Rapid automated flood mapping using SAR imagery and locally adaptive thresholds derived from multivariate gamma probability distributions. <em>International Journal of Applied Earth Observation and Geoinformation</em>.</li>
+</ol>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="our-team">Our Team<a href="http://ciroh.org/staging/main/blog/fim-community-ecosystem#our-team" class="hash-link" aria-label="Direct link to Our Team" title="Direct link to Our Team" translate="no">​</a></h2>
+<section class="grid_dswN" aria-label="Author profiles"><article class="card_eIx_"><img class="avatar_Hy6q" src="http://ciroh.org/staging/main/img/profiles/Supath_Dhital.jpg" alt="Supath Dhital profile photo" loading="lazy"><div class="content_MZL4"><h3 class="name_tQs4">Supath Dhital</h3><p class="title_YsdW">Geography Researcher II</p><p class="organization_zZwt">The University of Alabama</p></div></article><article class="card_eIx_"><img class="avatar_Hy6q" src="http://ciroh.org/staging/main/img/profiles/Dipsikha_Devi.jpg" alt="Dipsikha Devi profile photo" loading="lazy"><div class="content_MZL4"><h3 class="name_tQs4">Dipsikha Devi</h3><p class="title_YsdW">Postdoctoral Researcher</p><p class="organization_zZwt">The University of Alabama</p></div></article><article class="card_eIx_"><img class="avatar_Hy6q" src="http://ciroh.org/staging/main/img/profiles/Anupal_Baruah.jpg" alt="Anupal Baruah profile photo" loading="lazy"><div class="content_MZL4"><h3 class="name_tQs4">Anupal Baruah</h3><p class="title_YsdW">Research Scientist</p><p class="organization_zZwt">The University of Alabama</p></div></article><article class="card_eIx_"><img class="avatar_Hy6q" src="http://ciroh.org/staging/main/img/profiles/Dinuke_Munasinghe.jpg" alt="Dinuke Munasinghe profile photo" loading="lazy"><div class="content_MZL4"><h3 class="name_tQs4">Dinuke Munasinghe</h3><p class="title_YsdW">Research Scientist</p><p class="organization_zZwt">The University of Alabama</p></div></article><article class="card_eIx_"><img class="avatar_Hy6q" src="http://ciroh.org/staging/main/img/profiles/Parvaneh_Nikrou.jpg" alt="Parvaneh Nikrou profile photo" loading="lazy"><div class="content_MZL4"><h3 class="name_tQs4">Parvaneh Nikrou</h3><p class="title_YsdW">PhD Candidate</p><p class="organization_zZwt">The University of Alabama</p></div></article><article class="card_eIx_"><img class="avatar_Hy6q" src="http://ciroh.org/staging/main/img/profiles/Dan_Tian.jpg" alt="Dan Tian profile photo" loading="lazy"><div class="content_MZL4"><h3 class="name_tQs4">Dan Tian</h3><p class="title_YsdW">Postdoctoral Researcher</p><p class="organization_zZwt">The University of Alabama</p></div></article><article class="card_eIx_"><img class="avatar_Hy6q" src="http://ciroh.org/staging/main/img/profiles/Yixian_Chen.jpg" alt="Yixian Chen profile photo" loading="lazy"><div class="content_MZL4"><h3 class="name_tQs4">Yixian Chen</h3><p class="title_YsdW">Research Scientist</p><p class="organization_zZwt">The University of Alabama</p></div></article><article class="card_eIx_"><img class="avatar_Hy6q" src="http://ciroh.org/staging/main/img/profiles/Sagy_Cohen.jpg" alt="Sagy Cohen (PI) profile photo" loading="lazy"><div class="content_MZL4"><h3 class="name_tQs4">Sagy Cohen (PI)</h3><p class="title_YsdW">Professor</p><p class="organization_zZwt">The University of Alabama</p></div></article></section>]]></content>
+        <author>
+            <name>Supath Dhital</name>
+            <uri>https://www.linkedin.com/in/supathdh/</uri>
+        </author>
+        <author>
+            <name>Dipsikha Devi</name>
+            <uri>https://www.linkedin.com/in/dipsikha-devi-ph-d-83b97781/</uri>
+        </author>
+        <author>
+            <name>Anupal Baruah</name>
+            <uri>https://www.linkedin.com/in/anupal-baruah-23727176/</uri>
+        </author>
+        <author>
+            <name>Dinuke Munasinghe</name>
+            <uri>https://www.linkedin.com/in/dinuke-munasinghe/</uri>
+        </author>
+        <author>
+            <name>Parvaneh Nikrou</name>
+            <uri>https://www.linkedin.com/in/parvaneh-nikrou/</uri>
+        </author>
+        <author>
+            <name>Dan Tian</name>
+            <uri>https://www.linkedin.com/in/dan-tian-0841862a4/</uri>
+        </author>
+        <author>
+            <name>Yixian Chen</name>
+            <uri>https://www.linkedin.com/in/yixian-chen-765583166/</uri>
+        </author>
+        <author>
+            <name>Sagy Cohen</name>
+            <uri>https://www.linkedin.com/in/sagy-cohen-975b045a/</uri>
+        </author>
+        <category label="Flooding" term="Flooding"/>
+        <category label="Flood Inundation Mapping" term="Flood Inundation Mapping"/>
+        <category label="Operational Research" term="Operational Research"/>
+        <category label="Large-Scale" term="Large-Scale"/>
+        <category label="Hydrology" term="Hydrology"/>
+        <category label="HAND" term="HAND"/>
+        <category label="National Water Model" term="National Water Model"/>
+        <category label="Benchmarking" term="Benchmarking"/>
+        <category label="Evaluation" term="Evaluation"/>
+        <category label="Remote Sensing" term="Remote Sensing"/>
+        <category label="Hydrodynamic Modeling" term="Hydrodynamic Modeling"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Powering CIROH DevCon 2026: How CIROH and 2i2c Ran Cloud Computing at Scale]]></title>
         <id>http://ciroh.org/staging/main/blog/devcon26-infra</id>
@@ -29,6 +320,7 @@ that needed infrastructure (14 requests), the R2OHC cloud provisioned the follow
 <p>For 12 of these workshops, their backbone was the <strong>CIROH–2i2c JupyterHub</strong>, a managed JupyterHub
 environment that 2i2c operates on Google Cloud. For the conference, we provisioned a dedicated
 <strong>Workshop Hub</strong>: an ephemeral environment that lives only for the duration of the event and then spins back down.</p>
+<!-- -->
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="the-work-that-happens-before-anyone-logs-in-custom-images">The work that happens before anyone logs in: custom images<a href="http://ciroh.org/staging/main/blog/devcon26-infra#the-work-that-happens-before-anyone-logs-in-custom-images" class="hash-link" aria-label="Direct link to The work that happens before anyone logs in: custom images" title="Direct link to The work that happens before anyone logs in: custom images" translate="no">​</a></h2>
 <p><strong>Nine of the twelve JupyterHub workshops needed a custom software image</strong> to support their unique computing needs.
 Sessions covering topics like the Community Asset Computation Hub (CCNH), Foundations of Machine Learning,
@@ -42,7 +334,7 @@ ready and consistent on day one, demonstrating clear evidence of how tightly the
 <figure style="text-align:center"><img class="dark-mode-white-bg" src="http://ciroh.org/staging/main/img/blog/2026-06-devcon/devcon26-usage.png" width="100%" alt="A line graph showing usage of CIROH-2i2c JupyterHub environments over time. A spike in usage occurs on May 27th, peaking on the 27th at 132 workshop users, before leveling back off to near-zero levels after the conference's end on June 1st."><figcaption><em>During DevCon, as many as 132 participants were logged into CIROH-2i2c JupyterHub per day.</em></figcaption></figure>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="ccnh-instant-access-to-nextgen-in-jupyterhub">CCNH: Instant Access to NextGen in JupyterHub<a href="http://ciroh.org/staging/main/blog/devcon26-infra#ccnh-instant-access-to-nextgen-in-jupyterhub" class="hash-link" aria-label="Direct link to CCNH: Instant Access to NextGen in JupyterHub" title="Direct link to CCNH: Instant Access to NextGen in JupyterHub" translate="no">​</a></h2>
 <p>Two of the twelve workshops also marked the first appearance of the
-<a href="https://hub.ciroh.org/docs/products/ngiab/distributions/nextgen-2i2c/" target="_blank" rel="noopener noreferrer" class=""><strong>CIROH Community NextGen Hub</strong> (<strong>CCNH</strong>)</a>
+<a href="https://hub.ciroh.org/docs/products/ngiab-ecosystem/ngiab/distributions/nextgen-2i2c/" target="_blank" rel="noopener noreferrer" class=""><strong>CIROH Community NextGen Hub</strong> (<strong>CCNH</strong>)</a>
 at a DevCon event! This JupyterHub image contains all of the dependencies
 required to run the NextGen Framework, bypassing the framework's notorious
 complexity. CCNH represents a new paradigm where the NextGen framework can
@@ -312,7 +604,7 @@ The NRDS is an automated numerical prediction system generating regular stream f
 <li class="">Examine the NRDS deployment status timeline to see which datastreams have been deployed, when, and at what scale: <a href="https://github.com/CIROH-UA/ngen-datastream/blob/main/docs/nrds/STATUS_AND_METADATA.md" target="_blank" rel="noopener noreferrer" class="">NRDS Status</a></li>
 <li class="">Propose an improvement: Use the <a href="https://github.com/CIROH-UA/ngen-datastream/issues" target="_blank" rel="noopener noreferrer" class="">NRDS Issues page</a> to submit your idea for a new datastream or an edit to an existing deployment.</li>
 <li class="">Join the conversation: Participate in <a href="https://github.com/CIROH-UA/ngen-datastream/discussions" target="_blank" rel="noopener noreferrer" class="">GitHub Discussions</a> to connect with the community</li>
-<li class="">Read the documentation: Visit the <a href="https://hub.ciroh.org/docs/products/research-datastream/" target="_blank" rel="noopener noreferrer" class="">CIROH Hub NRDS page</a> for comprehensive documentation on the NRDS system and broader ecosystem.</li>
+<li class="">Read the documentation: Visit the <a href="https://hub.ciroh.org/docs/products/ngiab-ecosystem/nrds/" target="_blank" rel="noopener noreferrer" class="">CIROH Hub NRDS page</a> for comprehensive documentation on the NRDS system and broader ecosystem.</li>
 <li class="">Try out NRDS tools: Clone the various NRDS repositories to experiment with the NRDS workflow.<!-- -->
 <ul>
 <li class=""><a href="https://github.com/CIROH-UA/datastreamcli" target="_blank" rel="noopener noreferrer" class="">DataStreamCLI</a> <em>(Figure 2)</em>: the on-server workflow tool used in NRDS simulations. This tool offers the ability to reproduce NRDS simulations, with a modular design for integrating research configurations and processing components.</li>
@@ -424,7 +716,7 @@ It allows scientists to spend less time on setup and more time advancing hydrolo
 <li class="">Nassar, A., Tarboton, D., Baig, F., Cunningham, J., Patel, A., Halgren, J., Lee, B., Salehabadi, H., Castronova, A., and Garousi-Nejad, I. "Accelerating community research applications of the NextGen water modeling framework through CUAHSI HydroShare linked with CIROH-2i2c JupyterHub." <em>Environmental Modelling &amp; Software</em>. (In-review)</li>
 <li class="">Nassar, A., Tarboton, D., Baig, F., Patel, A., Cunningham, J., and Salehabadi, H. (2026). NextGen Water Modeling Workflow for Research-Scale Applications. <a href="https://www.hydroshare.org/resource/27045581bdea4808a393330f2417379c" target="_blank" rel="noopener noreferrer" class="">https://www.hydroshare.org/resource/27045581bdea4808a393330f2417379c</a></li>
 <li class="">I-GUIDE VCO: <a href="https://i-guide.io/i-guide-vco/enabling-community-research-with-the-next-generation-national-water-modeling-framework-through-streamlined-workflows-on-ciroh-jupyterhub/" target="_blank" rel="noopener noreferrer" class="">Enabling Community Research with the Next Generation National Water Modeling Framework</a></li>
-<li class="">CIROH Hub: <a href="https://hub.ciroh.org/docs/products/ngiab/distributions/nextgen-2i2c/" target="_blank" rel="noopener noreferrer" class="">https://hub.ciroh.org/docs/products/ngiab/distributions/nextgen-2i2c/</a></li>
+<li class="">CIROH Hub: <a href="https://hub.ciroh.org/docs/products/ngiab-ecosystem/ngiab/distributions/nextgen-2i2c/" target="_blank" rel="noopener noreferrer" class="">https://hub.ciroh.org/docs/products/ngiab-ecosystem/ngiab/distributions/nextgen-2i2c/</a></li>
 </ul>]]></content>
         <author>
             <name>Ayman Nassar</name>
@@ -471,7 +763,7 @@ It allows scientists to spend less time on setup and more time advancing hydrolo
         <updated>2026-02-20T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Penn State and AWI reunite to introduce an hourly differentiable model to AWI's NextGen Ecosystem.]]></summary>
         <content type="html"><![CDATA[<p>In October 2025, Penn State's Multi-scale Hydrology, Processes and Intelligence group (MHPI), led by Dr. Chaopeng Shen, and the Alabama Water Institute (AWI), led by Steve Burian and Arpita Patel, achieved a milestone R2O effort: the preliminary integration of δHBV 2.0 [4] -- a daily-scale, high-resolution, distributed differentiable model -- into a NextGen ecosystem. This resulted in the first adoption of a differentiable model into <a href="https://github.com/CIROH-UA/NGIAB-CloudInfra" target="_blank" rel="noopener noreferrer" class="">NextGen In A Box (NGIAB)</a> [2] and provided an opportunity for CIROH researchers to fine-tune the δHBV 2.0 architecture for NextGen operation.</p>
-<p>Having proven viability for daily timescale predictions on high-resolution river networks [4], MHPI researchers recently adapted δHBV 2.0 into a multi-timescale architecture designed to parameterize HBV and simulate streamflow at hourly intervals, at scale, across the NextGen HydroFabric. This new model, δHBV 2.0 MTS (Multi-TimeScale) [5], is a fusion of a daily and hourly δHBV 2.0 model designed to efficiently handle ML training with high geospatial <em>and</em> temporal complexity. (See <a href="http://ciroh.org/staging/main/blog/awi-psu-collab2#mts-architecture" class="">MTS Architecture</a> for more details about this construction.)</p>
+<p>Having proven viability for daily timescale predictions on high-resolution river networks [4], MHPI researchers recently adapted δHBV 2.0 into a multi-timescale architecture designed to parameterize HBV and simulate streamflow at hourly intervals, at scale, across the NextGen HydroFabric. This new model, δHBV 2.0 MTS (Multi-TimeScale) [5], is a fusion of a daily and hourly δHBV 2.0 model designed to efficiently handle ML training with high geospatial <em>and</em> temporal complexity. (See <a class="" href="http://ciroh.org/staging/main/blog/awi-psu-collab2#mts-architecture">MTS Architecture</a> for more details about this construction.)</p>
 <p>With δHBV 2.0 MTS maintaining similar forecasting skill compared to its daily-scale counterpart [5], Penn State and AWI were once again reunited in a joint effort to embed hourly scale differentiable modeling within AWI's operational ecosystem as a demonstration of model viability and to facilitate open access to its runtime.</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="differentiable-models">Differentiable Models<a href="http://ciroh.org/staging/main/blog/awi-psu-collab2#differentiable-models" class="hash-link" aria-label="Direct link to Differentiable Models" title="Direct link to Differentiable Models" translate="no">​</a></h2>
 <p>δHBV 2.0 and δHBV 2.0 MTS differentiable model constructions are briefly outlined here to contextualize the development efforts. For further detail, see each model's respective citation.
@@ -1038,7 +1330,7 @@ successes in the transition of research to operations.</p>
 </ul>
 <!-- -->
 <ul>
-<li class="">Meanwhile, from the <strong>operations</strong> core, CIROH's Science and Cyberinfrastructure team at the <a href="https://awi.ua.edu/" target="_blank" rel="noopener noreferrer" class="">Alabama Water institute (AWI)</a>, headed by Arpita Patel and James Halgren, debuted an operational pipeline composed chiefly of flagships <a href="https://ngiab.ciroh.org/" target="_blank" rel="noopener noreferrer" class="">NextGen In a Box (NGIAB)</a> and the <a href="https://hub.ciroh.org/docs/products/research-datastream/" target="_blank" rel="noopener noreferrer" class="">Next Generation Research Datastream (NRDS)</a>, forming an open-source software stack powering an accessible operational implementation of NOAA's Next Generation National Water Model. NRDS, in particular, executes a regularly scheduled set of continental-scale, NextGen-based hydrologic forecasts on CIROH's cloud-based cyberinfrastructure, and is designed to be a canvas for showcasing community modeling advances as potential R2O opportunities for NextGen.</li>
+<li class="">Meanwhile, from the <strong>operations</strong> core, CIROH's Science and Cyberinfrastructure team at the <a href="https://awi.ua.edu/" target="_blank" rel="noopener noreferrer" class="">Alabama Water institute (AWI)</a>, headed by Arpita Patel and James Halgren, debuted an operational pipeline composed chiefly of flagships <a href="https://ngiab.ciroh.org/" target="_blank" rel="noopener noreferrer" class="">NextGen In a Box (NGIAB)</a> and the <a href="https://hub.ciroh.org/docs/products/ngiab-ecosystem/nrds/" target="_blank" rel="noopener noreferrer" class="">Next Generation Research Datastream (NRDS)</a>, forming an open-source software stack powering an accessible operational implementation of NOAA's Next Generation National Water Model. NRDS, in particular, executes a regularly scheduled set of continental-scale, NextGen-based hydrologic forecasts on CIROH's cloud-based cyberinfrastructure, and is designed to be a canvas for showcasing community modeling advances as potential R2O opportunities for NextGen.</li>
 </ul>
 <p>As destined in CIROH, these two efforts converged in early October during a week-long collaboration hosted by AWI, bringing Penn State researcher Leo Lonzarich south to Tuscaloosa, Alabama, to join in facilitating the formal introduction of differentiable models like δHBV 2.0 into the NRDS.</p>
 <!-- -->
@@ -1382,7 +1674,7 @@ By removing setup friction, researchers can focus on science rather than softwar
 <p>Here's how to get involved:</p>
 <p>👉 <a href="https://docs.ciroh.org/training-NGIAB-101" target="_blank" rel="noopener noreferrer" class=""><strong>Try NGIAB</strong></a>: Visit the NGIAB 101 tutorial to get started</p>
 <p>✍️ <a class="" href="http://ciroh.org/staging/main/contact"><strong>Share your use case</strong></a>: Tell us how you're using NGIAB in your research or operations</p>
-<p>🛠 <a class="" href="http://ciroh.org/staging/main/docs/products/ngiab/distributions/ngiab-docker/contribute"><strong>Contribute</strong></a>: Submit bug reports, feature requests, or code contributions</p>
+<p>🛠 <a class="" href="http://ciroh.org/staging/main/docs/products/ngiab-ecosystem/ngiab/distributions/ngiab-docker/contribute"><strong>Contribute</strong></a>: Submit bug reports, feature requests, or code contributions</p>
 <p>📢 <strong>Spread the word</strong>: Help others discover how NGIAB can accelerate their water modeling work</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="thank-you-to-our-community">Thank You to Our Community<a href="http://ciroh.org/staging/main/blog/ngiab-10k#thank-you-to-our-community" class="hash-link" aria-label="Direct link to Thank You to Our Community" title="Direct link to Thank You to Our Community" translate="no">​</a></h2>
 <p>This milestone belongs to everyone who downloaded, tested, provided feedback, contributed code, or helped spread the word about NGIAB. Your engagement drives our continuous improvement and motivates us to make water modeling even more accessible.</p>
@@ -1513,128 +1805,5 @@ Dr. Alam not only demonstrated exceptional leadership and charisma at the NHWC 2
         <category label="Tethys Platform" term="Tethys Platform"/>
         <category label="Geoscience" term="Geoscience"/>
         <category label="Open Source" term="Open Source"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[AORC Data in Your Hands: User-Friendly Jupyter Notebooks for Data Retrieval and Analysis via CIROH-2i2c JupyterHub Notebooks]]></title>
-        <id>http://ciroh.org/staging/main/blog/aorc-data-access</id>
-        <link href="http://ciroh.org/staging/main/blog/aorc-data-access"/>
-        <updated>2025-07-01T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Accessing AORC data has never been easier with our new Jupyter Notebooks, designed for both point and zone retrieval from the AORC datasets hosted on AWS.]]></summary>
-        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Screenshot of Hydroshare Resource" src="http://ciroh.org/staging/main/assets/images/aorc-data-retrieval-hydroshare-8cf1d0e0ef2e88fd3e47058cf2fae473.png" width="1281" height="475" class="img_ev3q"></p>
-<blockquote>
-<p><em>A screenshot of the HydroShare resource page for <a href="https://www.hydroshare.org/resource/72ea9726187e43d7b50a624f2acf591f/" target="_blank" rel="noopener noreferrer" class="">Jupyter Notebooks for the Retrieval of AORC Data for Hydrologic Analysis</a>.</em></p>
-</blockquote>
-<p>The Analysis of Record for Calibration (AORC) dataset is recognized as a high-value resource for the CUAHSI and CIROH community.
-This dataset is hosted by NOAA via Amazon Web Services (AWS) and is available in two primary formats:
-a <a href="https://registry.opendata.aws/noaa-nws-aorc/" target="_blank" rel="noopener noreferrer" class="">latitude-longitude gridded dataset</a>
-and the <a href="https://registry.opendata.aws/nwm-archive/" target="_blank" rel="noopener noreferrer" class="">National Water Model (NWM) projected dataset, part of the NWM Retrospective archive</a>.
-To enhance accessibility and illustrate analysis capabilities, we developed four user-friendly Jupyter Notebooks that enable data retrieval for both specific points of interest and spatial domains defined by shapefiles:</p>
-<!-- -->
-<ul>
-<li class=""><strong>AORC_LL_PointRetrieval.ipynb</strong>: For retrieving and aggregating data from the latitude-longitude gridded dataset for a specific point using geographic coordinates.</li>
-<li class=""><strong>AORC_LL_ZoneRetrieval.ipynb</strong>: For retrieving and aggregating data from the latitude-longitude gridded dataset for an area defined by a polygon shapefile.</li>
-<li class=""><strong>AORC_NWMProj_PointRetrieval.ipynb</strong>: For retrieving and aggregating data from the NWM projected dataset for a specific point using geographic coordinates.</li>
-<li class=""><strong>AORC_NWMProj_ZoneRetrieval.ipynb</strong>: For retrieving and aggregating data from the NWM projected dataset for an area defined by a polygon shapefile.</li>
-</ul>
-<p>These Jupyter Notebooks, containing instructions and Python code to access the data, enable researchers to retrieve AORC data from AWS.
-From there, the notebooks offer options to subset and aggregate the data over user-defined time intervals (beyond the original hourly resolution) and spatial area.
-These serve as examples for how you could write or modify code to access AORC data in your work.
-The notebooks are publicly <a href="https://www.hydroshare.org/resource/72ea9726187e43d7b50a624f2acf591f/" target="_blank" rel="noopener noreferrer" class="">available on HydroShare</a>
-and are compatible with JupyterHub computing platforms such as <a href="https://www.hydroshare.org/resource/2dd1ac86e8854d4fb9fe5fbafaec2b98/" target="_blank" rel="noopener noreferrer" class="">CIROH 2i2c JupyterHub linked to HydroShare</a>.</p>
-<p>To use these notebooks, go to the <a href="https://www.hydroshare.org/resource/72ea9726187e43d7b50a624f2acf591f/" target="_blank" rel="noopener noreferrer" class="">HydroShare resource</a>,
-select "Open With" at the top right, and choose "CIROH 2i2c JupyterHub".
-This will copy the resource contents (notebooks and data) into the CIROH-2i2c JupyterHub environment,
-where you can open and work through them to access the data.
-Note that you will need a <a href="https://www.hydroshare.org/" target="_blank" rel="noopener noreferrer" class="">CUAHSI HydroShare account</a> to access "Open With" in HydroShare,
-and you will also need to <a class="" href="http://ciroh.org/staging/main/docs/services/access/#accessing-ciroh-2i2c-jupyterhub">request CIROH-2i2c JupyterHub access</a> using a GitHub account.</p>
-<p>Our work also includes a comparative analysis of the two AORC datasets with a summary of findings.
-While we mostly observed small differences, mainly due to projections, users should be aware of potential discrepancies between the datasets.</p>
-<p>By providing these user-friendly tools and highlighting the characteristics of both AORC datasets,
-our work aims to support and facilitate more efficient hydrological and climate-related research within the CUAHSI and CIROH community.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="references">References:<a href="http://ciroh.org/staging/main/blog/aorc-data-access#references" class="hash-link" aria-label="Direct link to References:" title="Direct link to References:" translate="no">​</a></h3>
-<ul>
-<li class="">Salehabadi, H., D. Tarboton, A. Nassar, A. M. Castronova, P. Dash (2025). Jupyter Notebooks for the Retrieval of AORC Data for Hydrologic Analysis, HydroShare, <a href="http://www.hydroshare.org/resource/72ea9726187e43d7b50a624f2acf591f" target="_blank" rel="noopener noreferrer" class="">http://www.hydroshare.org/resource/72ea9726187e43d7b50a624f2acf591f</a></li>
-<li class="">The development versions of these notebooks are available on GitHub: <a href="https://github.com/CUAHSI/notebooks" target="_blank" rel="noopener noreferrer" class="">https://github.com/CUAHSI/notebooks</a> in the Data Access Examples / AORC - Retrieval of AORC Data for Hydrologic Analysis folder.</li>
-<li class="">Patel, A., A. Castronova (2025). CIROH 2i2c JupyterHub, HydroShare, <a href="http://www.hydroshare.org/resource/2dd1ac86e8854d4fb9fe5fbafaec2b98" target="_blank" rel="noopener noreferrer" class="">http://www.hydroshare.org/resource/2dd1ac86e8854d4fb9fe5fbafaec2b98</a></li>
-</ul>]]></content>
-        <author>
-            <name>Homa Salehabadi</name>
-            <uri>https://www.linkedin.com/in/homasalehabadi/</uri>
-        </author>
-        <author>
-            <name>David Tarboton</name>
-            <uri>https://www.linkedin.com/in/dtarb/</uri>
-        </author>
-        <author>
-            <name>Ayman Nassar</name>
-            <uri>https://www.linkedin.com/in/ayman-nassar-24a92723/</uri>
-        </author>
-        <category label="Blog" term="Blog"/>
-        <category label="Community Spotlight" term="Community Spotlight"/>
-        <category label="Utah State University" term="Utah State University"/>
-        <category label="HydroShare" term="HydroShare"/>
-        <category label="CIROH" term="CIROH"/>
-        <category label="Data Preparation" term="Data Preparation"/>
-        <category label="JupyterHub" term="JupyterHub"/>
-        <category label="2i2c" term="2i2c"/>
-        <category label="Cloud Services" term="Cloud Services"/>
-        <category label="National Water Model" term="National Water Model"/>
-        <category label="NOAA" term="NOAA"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Assessing Streamflow Forecast Over the Hackensack River Watershed Using NGIAB]]></title>
-        <id>http://ciroh.org/staging/main/blog/ismart-ngiab-application</id>
-        <link href="http://ciroh.org/staging/main/blog/ismart-ngiab-application"/>
-        <updated>2025-06-27T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[A summary of the research presented at the 2025 CIROH DevCon, focusing on streamflow forecasting in the Hackensack River Watershed using NGIAB.]]></summary>
-        <content type="html"><![CDATA[<div style="text-align:center"><p><img decoding="async" loading="lazy" alt="A poster, titled &amp;quot;Assessing streamflow forecast over the Hackensack River Watershed using physics- and AI-driven weather prediction models&amp;quot;." src="http://ciroh.org/staging/main/assets/images/blog_CIROH_DevCon-bd5de4e3ca6192611aadd30bb47b1586.png" width="1303" height="951" class="img_ev3q"></p></div>
-<blockquote>
-<p><em>A poster presented by the I-SMART team at the CIROH Developers Conference, held at the University of Vermont in Burlington from May 28 to 30, 2025.</em></p>
-</blockquote>
-<p>The densely populated Hackensack River watershed lies within the New York City Metropolitan Area, which spans northern New Jersey and southern New York.
-Accurate streamflow forecasting within this region is therefore essential to enable effective water resource management, flood prediction, and disaster preparedness.</p>
-<p>Precipitation data is critical for effective hydrological modeling, making the identification of reliable data sources a key priority.
-This is why the Integrated Spatial Modeling and Remote Sensing Technologies Laboratory (I-SMART),
-an interdisciplinary research unit within the Davidson Laboratory at Stevens Institute of Technology in Hoboken, New Jersey,
-uses the latest developments in both atmospheric and hydrological modeling to address flood risks in the Hackensack Watershed
-with solutions that could be expanded to the entire New York City Metropolitan Area.</p>
-<!-- -->
-<p>In the past, this work has included key early applications of the Next Generation Water Resources Modeling Framework (NextGen).
-Notably, the I-SMART group was among the first to force the NextGen framework with multiple atmospheric models for comparative analysis during a real-world event:
-the passage of Superstorm Ida over the New York metropolitan area in September 2021.
-The recent advent of NextGen In a Box (NGIAB) has provided an opportunity to accelerate these applications even further
-by taking full advantage of NGIAB's containerized, user-friendly, and easily deployed environment.</p>
-<p>Recently, the I-SMART team has been testing various regional atmospheric models grounded in physical equations,
-including traditional models like WRF and next-generation atmospheric models such as MPAS.
-Additionally, given the increasing popularity and adoption of AI/ML-based approaches,
-the team has also begun exploring their potential.
-The goal of this work is to assess the performance of these approaches in the Hackensack Watershed,
-along with investigating the sensitivity of the model to various meteorological forcings, including forcings based on the National Water Model.
-<em>(The initial and/or boundary conditions for all the models were determined using the Global Forecast System.)</em></p>
-<p>This investigation required handling a large volume of precipitation data from various models,
-each with different spatial resolutions and in some cases, such as MPAS, using unstructured grids.
-As such, one of the key challenges was finding a hydrological modeling framework flexible enough to accommodate such diversity.
-This made the NextGen framework a natural choice, allowing them to integrate precipitation forcings from various sources
-with the appropriate pre-processing to align them with the model requirements in terms of spatial and temporal scales.</p>
-<p>The complex implementation and execution of these models was faciliated by NextGen In A Box (NGIAB),
-which successfully enabled the integration of diverse precipitation sources.
-By simplifying local deployment and providing full control over model inputs, configurations, and runtime operations,
-NGIAB has given the I-SMART team the tools to conduct their groundbreaking research with even greater efficiency.</p>]]></content>
-        <author>
-            <name>Jorge Bravo</name>
-            <uri>https://www.linkedin.com/in/jhbravo/</uri>
-        </author>
-        <author>
-            <name>Marouane Temini</name>
-            <uri>https://scholar.google.com/citations?user=5v7tTVgAAAAJ&amp;hl=en</uri>
-        </author>
-        <category label="Blog" term="Blog"/>
-        <category label="Community Spotlight" term="Community Spotlight"/>
-        <category label="Stevens Institute of Technology" term="Stevens Institute of Technology"/>
-        <category label="NGIAB" term="NGIAB"/>
-        <category label="NextGen" term="NextGen"/>
-        <category label="CIROH DevCon" term="CIROH DevCon"/>
-        <category label="AI and Machine Learning" term="AI and Machine Learning"/>
-        <category label="National Water Model" term="National Water Model"/>
     </entry>
 </feed>
