@@ -2,11 +2,32 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>http://ciroh.org/staging/main/release-notes</id>
     <title>CIROH Hub Blog</title>
-    <updated>2026-08-28T00:00:00.000Z</updated>
+    <updated>2026-09-14T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="http://ciroh.org/staging/main/release-notes"/>
     <subtitle>CIROH Hub Blog</subtitle>
     <icon>http://ciroh.org/staging/main/img/logos/CIROH_Hub_logo.png</icon>
+    <entry>
+        <title type="html"><![CDATA[09-14-2026 Release Notes]]></title>
+        <id>http://ciroh.org/staging/main/release-notes/v20260914</id>
+        <link href="http://ciroh.org/staging/main/release-notes/v20260914"/>
+        <updated>2026-09-14T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Minor CIROH Hub update for September!]]></summary>
+        <content type="html"><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="new-content">New Content<a href="http://ciroh.org/staging/main/release-notes/v20260914#new-content" class="hash-link" aria-label="Direct link to New Content" title="Direct link to New Content" translate="no">​</a></h2>
+<ul>
+<li class=""><em>(Hotfix, 9/17)</em> Added new Contribute form to easily create HydroShare resources (<a href="https://github.com/CIROH-UA/ciroh_hub/pull/191" target="_blank" rel="noopener noreferrer" class="">#191</a>)</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="updates">Updates<a href="http://ciroh.org/staging/main/release-notes/v20260914#updates" class="hash-link" aria-label="Direct link to Updates" title="Direct link to Updates" translate="no">​</a></h2>
+<ul>
+<li class="">Updated homepage carousels, including new "What's new" section (<a href="https://github.com/CIROH-UA/ciroh_hub/pull/185" target="_blank" rel="noopener noreferrer" class="">#185</a>)</li>
+<li class="">Updated Zotero contribution instructions to prefer Hub submission form (<a href="https://github.com/CIROH-UA/ciroh_hub/pull/192" target="_blank" rel="noopener noreferrer" class="">#192</a>)</li>
+<li class="">Updated "NGIAB at a Glance" for accuracy and current-ness, especially regarding NRDS (<a href="https://github.com/CIROH-UA/ciroh_hub/pull/193" target="_blank" rel="noopener noreferrer" class="">#193</a>)</li>
+<li class="">Added workflow information and data to CHPT Harmful Algal Blooms docs page (<a href="https://github.com/CIROH-UA/ciroh_hub/pull/194" target="_blank" rel="noopener noreferrer" class="">#194</a>)</li>
+</ul>
+]]></content>
+        <category label="Release Notes" term="Release Notes"/>
+        <category label="CIROH Hub" term="CIROH Hub"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[08-28-2026 Release Notes]]></title>
         <id>http://ciroh.org/staging/main/release-notes/v20260828</id>
@@ -428,26 +449,6 @@ As such, this and all prior release notes refer to DocuHub changes and are retai
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="updates">Updates<a href="http://ciroh.org/staging/main/release-notes/v20251001#updates" class="hash-link" aria-label="Direct link to Updates" title="Direct link to Updates" translate="no">​</a></h2>
 <ul>
 <li class="">Added local mirror of NOAA Data Sharing Directive <a href="https://github.com/CIROH-UA/ciroh-ua_website/pull/473" target="_blank" rel="noopener noreferrer" class="">#473</a></li>
-</ul>
-]]></content>
-        <category label="Release Notes" term="Release Notes"/>
-        <category label="CIROH Hub" term="CIROH Hub"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[09-12-2025 Release Notes]]></title>
-        <id>http://ciroh.org/staging/main/release-notes/v20250912</id>
-        <link href="http://ciroh.org/staging/main/release-notes/v20250912"/>
-        <updated>2025-09-12T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Minor CIROH Hub update for September 2025!]]></summary>
-        <content type="html"><![CDATA[<blockquote>
-<p><em>Note that several changes in this release were published earlier as hotfixes.</em></p>
-</blockquote>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="updates">Updates<a href="http://ciroh.org/staging/main/release-notes/v20250912#updates" class="hash-link" aria-label="Direct link to Updates" title="Direct link to Updates" translate="no">​</a></h2>
-<ul>
-<li class="">Added redirect and announcement banner for Science Meeting 2025 Survey (<a href="https://github.com/CIROH-UA/ciroh-ua_website/pull/472" target="_blank" rel="noopener noreferrer" class="">#472</a>, <a href="https://github.com/CIROH-UA/ciroh-ua_website/pull/470" target="_blank" rel="noopener noreferrer" class="">#470</a>)</li>
-<li class="">Fixes to Community Impact page (<a href="https://github.com/CIROH-UA/ciroh-ua_website/pull/471" target="_blank" rel="noopener noreferrer" class="">#471</a>, <a href="https://github.com/CIROH-UA/ciroh-ua_website/pull/468" target="_blank" rel="noopener noreferrer" class="">#468</a>)</li>
-<li class="">Corrected error in "NWM, NextGen, and NGIAB" page (<a href="https://github.com/CIROH-UA/ciroh-ua_website/pull/469" target="_blank" rel="noopener noreferrer" class="">#469</a>)</li>
-<li class="">Updated news entries for NGIAB-HPCInfra and CIROH community forks of ngen/troute (<a href="https://github.com/CIROH-UA/ciroh-ua_website/pull/467" target="_blank" rel="noopener noreferrer" class="">#467</a>)</li>
 </ul>
 ]]></content>
         <category label="Release Notes" term="Release Notes"/>
